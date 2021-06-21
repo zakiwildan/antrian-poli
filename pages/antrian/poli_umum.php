@@ -62,7 +62,7 @@ require_once('../../config.php');
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link" href="antrian-poli.php">
+        <a class="nav-link" href="../../antrian-poli.php">
           <i class="fas fa-door-open"></i>
           <span>Antrian Poli</span>
         </a>

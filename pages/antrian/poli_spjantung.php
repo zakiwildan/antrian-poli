@@ -1,5 +1,5 @@
-<?php 
-require_once ('../../config.php');
+<?php
+require_once('../../config.php');
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ require_once ('../../config.php');
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link" href="antrian-poli.php">
+        <a class="nav-link" href="../../antrian-poli.php">
           <i class="fas fa-door-open"></i>
           <span>Antrian Poli</span>
         </a>
@@ -99,62 +99,59 @@ require_once ('../../config.php');
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Pilih Poli Antrian</h1>
-          </div>
-
           <!-- Content Row -->
           <div class="row">
-            <!-- Isi Disini -->
 
-            <div class="col">
-
-              <!-- DataTales Example -->
+            <div class="col-6">
+              <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">List Poliklinik</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Antrian Poli Spesialis Jantung</h6>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th width="20%">Kode Poli</th>
-                          <th width="65%">Nama Poli</th>
-                          <th class="text-center" width="15%">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
 
-                      <?php 
-                        $query_Poli = "SELECT * from a_poliklinik where status = 1";
-                        $getData = mysqli_query($conn, $query_Poli);
-                        
-                        while($rowData = mysqli_fetch_assoc($getData)){
+                  <div class="jumbotron">
+                    <h3>Nomor Yang Dipanggil :</h3>
+                    <hr class="my-4">
+                    <h1 class="display-3 text-center" id="nomor-antrian">
+                      <?php
+                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Spesialis Jantung'");
+                      $cekNomor = mysqli_num_rows($qAntrian);
+                      if ($cekNomor <= 0) {
+                        echo "Kosong";
+                      } else {
+                        echo "$cekNomor";
+                      }
                       ?>
-                        
-                        <tr>
-                          <td><?= $rowData['id_poli'] ?></td>
-                          <td><?= $rowData['nm_poli'] ?></td>
-                          <td align="center">
-                              <a class="btn btn-primary btn-circle btn-sm" href="<?= $rowData['url_poli'] ?>.php">
-                                <i class="fas fa-check"></i>
-                              </a>
-                          </td>
-                        </tr>
-
-                      <?php } ?>
-
-                      </tbody>
-                    </table>
+                    </h1>
                   </div>
+
+                  <!-- Batas Tombol -->
+                  <div class="row mb-4 text-center">
+                    <div class="col-6">
+                      <!-- Button Next -->
+                      <button class="btn btn-primary btn-icon-split btn-lg" id="next">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-arrow-right"></i>
+                        </span>
+                        <span class="text">Next Antrian</span>
+                      </button>
+                    </div>
+
+                    <div class="col-6">
+                      <!-- Button Panggil -->
+                      <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-volume-down"></i>
+                        </span>
+                        <span class="text">Panggil Antrian</span>
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
-
             </div>
-            <!-- end col -->
 
           </div>
 
@@ -199,9 +196,33 @@ require_once ('../../config.php');
   <!-- Page level plugins -->
   <script src="../../vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#next").click(function() {
+        $.ajax({
+          type: "POST",
+          url: "../trigger/tambah_antrian.php",
+          data: "id=Poli Spesialis Jantung",
+          success: function(html) {
+            $("#nomor-antrian").html(html)
+          }
+        })
+      })
+
+      $("#repeat").click(function() {
+        $.ajax({
+          type: "POST",
+          url: "../trigger/panggil_ulang.php",
+          data: "id=Poli Spesialis Jantung",
+          success: function(html) {
+            $("#nomor-antrian").html(html)
+          }
+        })
+      })
+
+    })
+  </script>
+
 </body>
 
 </html>
