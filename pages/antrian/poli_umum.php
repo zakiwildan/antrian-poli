@@ -111,9 +111,19 @@ require_once('../../config.php');
                 <div class="card-body">
 
                   <div class="jumbotron">
-                    <p>Antrian Yang Dipanggil :</p>
+                    <h3>Nomor Yang Dipanggil :</h3>
                     <hr class="my-4">
-                    <h1 class="display-3 text-center" id="nomor-antrian">-</h1>
+                    <h1 class="display-3 text-center" id="nomor-antrian">
+                      <?php
+                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Umum'");
+                      $cekNomor = mysqli_num_rows($qAntrian);
+                      if ($cekNomor <= 0) {
+                        echo "Kosong";
+                      } else {
+                        echo "$cekNomor";
+                      }
+                      ?>
+                    </h1>
                   </div>
 
                   <!-- Batas Tombol -->
@@ -134,7 +144,7 @@ require_once('../../config.php');
                         <span class="icon text-white-50">
                           <i class="fas fa-volume-down"></i>
                         </span>
-                        <span class="text">Panggil Ulang</span>
+                        <span class="text">Panggil Antrian</span>
                       </button>
                     </div>
                   </div>
@@ -187,9 +197,7 @@ require_once('../../config.php');
   <script src="../../vendor/chart.js/Chart.min.js"></script>
 
   <script>
-
     $(document).ready(function() {
-
       $("#next").click(function() {
         $.ajax({
           type: "POST",
@@ -201,7 +209,7 @@ require_once('../../config.php');
         })
       })
 
-      $("#repeat").click(function(){
+      $("#repeat").click(function() {
         $.ajax({
           type: "POST",
           url: "../trigger/panggil_ulang.php",
@@ -213,7 +221,6 @@ require_once('../../config.php');
       })
 
     })
-
   </script>
 
 </body>

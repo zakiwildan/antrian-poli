@@ -106,7 +106,7 @@ require_once('../../config.php');
                             <!-- Basic Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Antrian Poli KIA</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Antrian Poli Fisioterapi</h6>
                                 </div>
                                 <div class="card-body">
 
@@ -115,7 +115,7 @@ require_once('../../config.php');
                                         <hr class="my-4">
                                         <h1 class="display-3 text-center" id="nomor-antrian">
                                             <?php
-                                            $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli KIA'");
+                                            $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Fisioterapi'");
                                             $cekNomor = mysqli_num_rows($qAntrian);
                                             if ($cekNomor <= 0) {
                                                 echo "Kosong";
@@ -203,7 +203,7 @@ require_once('../../config.php');
                 $.ajax({
                     type: "POST",
                     url: "../trigger/tambah_antrian.php",
-                    data: "id=Poli KIA",
+                    data: "id=Poli Fisioterapi",
                     success: function(html) {
                         $("#nomor-antrian").html(html)
                     }
@@ -214,7 +214,7 @@ require_once('../../config.php');
                 $.ajax({
                     type: "POST",
                     url: "../trigger/panggil_ulang.php",
-                    data: "id=Poli KIA",
+                    data: "id=Poli Fisioterapi",
                     success: function(html) {
                         $("#nomor-antrian").html(html)
                     }
