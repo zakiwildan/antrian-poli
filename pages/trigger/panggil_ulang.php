@@ -7,7 +7,7 @@ include "../../config.php";
 $id = $_POST['id'];
     
 $jumlahAntrian = 0;
-$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND nm_poli = '$id'");
+$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND nm_poli = '$id' AND status != 'selesai'");
 $jumlahAntrian = mysqli_num_rows($cekAntrian);
 
 $tambahAntrian = $jumlahAntrian;
