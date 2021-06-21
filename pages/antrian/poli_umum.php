@@ -130,11 +130,11 @@ require_once('../../config.php');
 
                     <div class="col-6">
                       <!-- Button Panggil -->
-                      <button class="btn btn-success btn-icon-split btn-lg" id="panggil">
+                      <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
                         <span class="icon text-white-50">
                           <i class="fas fa-volume-down"></i>
                         </span>
-                        <span class="text">Panggil Antrian</span>
+                        <span class="text">Panggil Ulang</span>
                       </button>
                     </div>
                   </div>
@@ -189,6 +189,7 @@ require_once('../../config.php');
   <script>
 
     $(document).ready(function() {
+
       $("#next").click(function() {
         $.ajax({
           type: "POST",
@@ -198,16 +199,19 @@ require_once('../../config.php');
             $("#nomor-antrian").html(html)
           }
         })
-
       })
 
       $("#repeat").click(function(){
         $.ajax({
           type: "POST",
           url: "../trigger/panggil_ulang.php",
-          data: "id=Poli Umum"
+          data: "id=Poli Umum",
+          success: function(html) {
+            $("#nomor-antrian").html(html)
+          }
         })
       })
+
     })
 
   </script>
