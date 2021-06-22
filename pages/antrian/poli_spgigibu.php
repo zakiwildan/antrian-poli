@@ -115,7 +115,7 @@ require_once('../../config.php');
                     <hr class="my-4">
                     <h1 class="display-3 text-center" id="nomor-antrian">
                       <?php
-                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Spesialis Gigi Umum'");
+                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Spesialis Gigi Bedah Mulut' AND status != 'selesai'");
                       $cekNomor = mysqli_num_rows($qAntrian);
                       if ($cekNomor <= 0) {
                         echo "Kosong";
@@ -202,7 +202,7 @@ require_once('../../config.php');
         $.ajax({
           type: "POST",
           url: "../trigger/tambah_antrian.php",
-          data: "id=Poli Spesialis Gigi Umum",
+          data: "id=Poli Spesialis Gigi Bedah Mulut",
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
@@ -213,7 +213,7 @@ require_once('../../config.php');
         $.ajax({
           type: "POST",
           url: "../trigger/panggil_ulang.php",
-          data: "id=Poli Spesialis Gigi Umum",
+          data: "id=Poli Spesialis Gigi Bedah Mulut",
           success: function(html) {
             $("#nomor-antrian").html(html)
           }

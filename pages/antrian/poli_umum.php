@@ -156,7 +156,7 @@ require_once('../../config.php');
                         <span class="icon text-white-50">
                           <i class="fas fa-volume-down"></i>
                         </span>
-                        <span class="text">Panggil Antrian</span>
+                        <span class="text">Panggil Ulang</span>
                       </button>
                     </div>
 

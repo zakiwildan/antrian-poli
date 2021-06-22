@@ -106,7 +106,19 @@ require_once('../../config.php');
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Antrian Poli Spesialis Bedah Umum</h6>
+                  <div class="row">
+                    <div class="col-6 float-left">
+                      <h6 class="mt-1 font-weight-bold text-primary">Antrian Poli Spesialis Bedah Umum</h6>
+                    </div>
+                    <div class="col-6 float-right text-right">
+                      <button class="btn btn-danger btn-icon-split btn-sm" id="reset">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-redo"></i>
+                        </span>
+                        <span class="text">Reset</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <div class="card-body">
 
@@ -115,7 +127,7 @@ require_once('../../config.php');
                     <hr class="my-4">
                     <h1 class="display-3 text-center" id="nomor-antrian">
                       <?php
-                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Spesialis Bedah Umum'");
+                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Spesialis Bedah Umum' AND status != 'selesai'");
                       $cekNomor = mysqli_num_rows($qAntrian);
                       if ($cekNomor <= 0) {
                         echo "Kosong";
@@ -144,7 +156,7 @@ require_once('../../config.php');
                         <span class="icon text-white-50">
                           <i class="fas fa-volume-down"></i>
                         </span>
-                        <span class="text">Panggil Antrian</span>
+                        <span class="text">Panggil Ulang</span>
                       </button>
                     </div>
                   </div>
@@ -219,6 +231,17 @@ require_once('../../config.php');
           }
         })
       })
+
+      $("#reset").click(function() {
+        $.ajax({
+          type: "POST",
+          url: "../trigger/selesai_antrian.php",
+          data: "id=Poli Spesialis Bedah Umum",
+          success: function(html) {
+            $("#nomor-antrian").html(html)
+          }
+        })
+      });
 
     })
   </script>
