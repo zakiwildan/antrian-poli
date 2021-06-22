@@ -39,6 +39,10 @@ $adaantrian = 1;
 <audio id="suarabelpoligigi" src="../record/poli/gigi.wav"></audio>
 <audio id="suarabelpolifisioterapi" src="../record/poli/fisioterapi.wav"></audio>
 <audio id="suarabelpolirehabmedik" src="../record/poli/rehabmedik.wav"></audio>
+<audio id="suarabelpolispanak" src="../record/poli/spanak.wav"></audio>
+<audio id="suarabelpolispanastesi" src="../record/poli/spanastesi.wav"></audio>
+<audio id="suarabelpolispbu" src="../record/poli/spbu.wav"></audio>
+<audio id="suarabelpolispgigi" src="../record/poli/spgigi.wav"></audio>
 
 <?php for ($i = 0; $i < $panjang; $i++) { ?>
     <audio id="suarabel<?php echo $i; ?>" src="../record/<?php echo substr($antrian, $i, 1); ?>.wav"></audio>
@@ -471,8 +475,45 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolifisioterapi').play();
             }, totalwaktu);
         <?php
+        } elseif ($id == "Poli Spesialis Anak") {
+        ?>
+            totalwaktu = totalwaktu + 2700;
+            setTimeout(function() {
+                document.getElementById('suarabelpolispanak').pause();
+                document.getElementById('suarabelpolispanak').currentTime = 0;
+                document.getElementById('suarabelpolispanak').play();
+            }, totalwaktu);
+        <?php
+        } elseif ($id == "Poli Spesialis Anastesi") {
+        ?>
+            totalwaktu = totalwaktu + 2700;
+            setTimeout(function() {
+                document.getElementById('suarabelpolispanastesi').pause();
+                document.getElementById('suarabelpolispanastesi').currentTime = 0;
+                document.getElementById('suarabelpolispanastesi').play();
+            }, totalwaktu);
+        <?php
+        } elseif ($id == "Poli Spesialis Bedah Umum") {
+        ?>
+            totalwaktu = totalwaktu + 2700;
+            setTimeout(function() {
+                document.getElementById('suarabelpolispbu').pause();
+                document.getElementById('suarabelpolispbu').currentTime = 0;
+                document.getElementById('suarabelpolispbu').play();
+            }, totalwaktu);
+            <?php
+        } elseif ($id == "Poli Spesialis Gigi") {
+        ?>
+            totalwaktu = totalwaktu + 2700;
+            setTimeout(function() {
+                document.getElementById('suarabelpolispgigi').pause();
+                document.getElementById('suarabelpolispgigi').currentTime = 0;
+                document.getElementById('suarabelpolispgigi').play();
+            }, totalwaktu);
+        <?php
         }
         ?>
+
     }
 </script>
 
