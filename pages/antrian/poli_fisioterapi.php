@@ -203,6 +203,7 @@ require_once('../../config.php');
                 $.ajax({
                     type: "POST",
                     url: "../trigger/tambah_antrian.php",
+                    cache: false,
                     data: "id=Poli Fisioterapi",
                     success: function(html) {
                         $("#nomor-antrian").html(html)
@@ -214,6 +215,7 @@ require_once('../../config.php');
                 $.ajax({
                     type: "POST",
                     url: "../trigger/panggil_ulang.php",
+                    cache: false,
                     data: "id=Poli Fisioterapi",
                     success: function(html) {
                         $("#nomor-antrian").html(html)
