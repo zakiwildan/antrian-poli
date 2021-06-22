@@ -31,7 +31,7 @@ $adaantrian = 1;
 <audio id="sepuluh" src="../record/sepuluh.wav"  ></audio>
 <audio id="ratus" src="../record/ratus.wav"  ></audio>
 <audio id="seratus" src="../record/seratus.wav"  ></audio>
-<audio id="suarabelloket2" src="../record/A.wav"  ></audio>
+<audio id="suarabelpoliumum" src="../record/umum.wav"  ></audio>
 
 <?php	for($i=0;$i<$panjang;$i++){ ?>
     <audio id="suarabel<?php echo $i; ?>" src="../record/<?php echo substr($antrian,$i,1); ?>.wav" ></audio>
@@ -409,11 +409,11 @@ $adaantrian = 1;
             document.getElementById('suarabelsuarabelloket').play();
         }, totalwaktu);
 
-        totalwaktu=totalwaktu+2000;
+        totalwaktu=totalwaktu+2700;
         setTimeout(function() {
-            document.getElementById('suarabelloket2').pause();
-            document.getElementById('suarabelloket2').currentTime=0;
-            document.getElementById('suarabelloket2').play();
+            document.getElementById('suarabelpoliumum').pause();
+            document.getElementById('suarabelpoliumum').currentTime=0;
+            document.getElementById('suarabelpoliumum').play();
         }, totalwaktu);
 		
     }
