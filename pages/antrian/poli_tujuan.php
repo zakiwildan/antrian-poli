@@ -273,7 +273,7 @@ $poli = $_GET['poli'];
         $.ajax({
           type: "POST",
           url: "../trigger/panggil_ulang.php",
-          data: "id=idPoli",
+          data: 'id='+idPoli,
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
@@ -284,7 +284,7 @@ $poli = $_GET['poli'];
         $.ajax({
           type: "POST",
           url: "../trigger/selesai_antrian.php",
-          data: "id=idPoli",
+          data: 'id='+idPoli,
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
