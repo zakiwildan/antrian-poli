@@ -7,11 +7,11 @@ include "../../config.php";
 $id = $_POST['id'];
 
 $jumlahAntrian = 0;
-$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND nm_poli = '$id' AND status != 'selesai'");
+$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND id_poli = '$id' AND status != 'selesai'");
 $jumlahAntrian = mysqli_num_rows($cekAntrian);
 
 $tambahAntrian = $jumlahAntrian + 1;
-$query = mysqli_query($conn, "INSERT INTO a_antrian (no_urut, tgl_periksa, nm_poli) VALUES ('$tambahAntrian', '$date', '$id')");
+$query = mysqli_query($conn, "INSERT INTO a_antrian (no_urut, tgl_periksa, id_poli) VALUES ('$tambahAntrian', '$date', '$id')");
 echo "$tambahAntrian";
 
 $nomor = (string)$tambahAntrian;
@@ -432,7 +432,7 @@ $adaantrian = 1;
         }, totalwaktu);
 
         <?php
-        if ($id == 'Poli Umum') {
+        if ($id == 'U001') {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {

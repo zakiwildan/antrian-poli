@@ -1,5 +1,6 @@
 <?php
 require_once('../../config.php');
+$poli = $_GET['poli'];
 ?>
 
 <!DOCTYPE html>
@@ -102,13 +103,13 @@ require_once('../../config.php');
           <!-- Content Row -->
           <div class="row">
 
-            <div class="col-6">
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
+            <div class="col">
+
+              <div class="card">
                 <div class="card-header py-3">
                   <div class="row">
                     <div class="col-6 float-left">
-                      <h6 class="mt-1 font-weight-bold text-primary">Antrian Poli Gigi</h6>
+                      <h6 class="mt-1 font-weight-bold text-primary">Antrian Poli Umum</h6>
                     </div>
                     <div class="col-6 float-right text-right">
                       <button class="btn btn-danger btn-icon-split btn-sm" id="reset">
@@ -121,48 +122,87 @@ require_once('../../config.php');
                   </div>
                 </div>
                 <div class="card-body">
+                  <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Antrian</a>
+                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Antrian Manual</a>
+                      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Antrian Khanza</a>
+                    </div>
+                  </nav>
 
-                  <div class="jumbotron">
-                    <h3>Nomor Yang Dipanggil :</h3>
-                    <hr class="my-4">
-                    <h1 class="display-3 text-center" id="nomor-antrian">
-                      <?php
-                      $qAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE nm_poli = 'Poli Gigi' AND status != 'selesai'");
-                      $cekNomor = mysqli_num_rows($qAntrian);
-                      if ($cekNomor <= 0) {
-                        echo "Kosong";
-                      } else {
-                        echo "$cekNomor";
-                      }
-                      ?>
-                    </h1>
-                  </div>
+                  <!-- Isian Menu -->
 
-                  <!-- Batas Tombol -->
-                  <div class="row mb-4 text-center">
-                    <div class="col-6">
-                      <!-- Button Next -->
-                      <button class="btn btn-primary btn-icon-split btn-lg" id="next">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-arrow-right"></i>
-                        </span>
-                        <span class="text">Next Antrian</span>
-                      </button>
+                  <div class="tab-content" id="nav-tabContent">
+                    <!-- Antrian Otomatis -->
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="jumbotron mt-4">
+                            <h3>Nomor Yang Dipanggil :</h3>
+                            <hr class="my-4">
+                            <h1 class="display-3 text-center" id="nomor-antrian">
+                              <?php
+                              $qAntrian = mysqli_query($conn, "SELECT no_urut FROM a_antrian JOIN a_poliklinik ON a_antrian.id_poli = a_poliklinik.id_poli WHERE a_poliklinik.id_poli = '$poli' AND a_antrian.status != 'selesai'");
+                              $cekNomor = mysqli_num_rows($qAntrian);
+                              if ($cekNomor <= 0) {
+                                echo "Kosong";
+                              } else {
+                                echo "$cekNomor";
+                              }
+                              ?>
+                            </h1>
+                          </div>
+
+                          <!-- Batas Tombol -->
+                          <div class="row mb-4 text-center">
+                            <div class="col-6">
+                              <!-- Button Next -->
+                              <button class="btn btn-primary btn-icon-split btn-lg" id="next">
+                                <span class="icon text-white-50">
+                                  <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="text">Next Antrian</span>
+                              </button>
+                            </div>
+
+                            <div class="col-6">
+                              <!-- Button Panggil -->
+                              <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
+                                <span class="icon text-white-50">
+                                  <i class="fas fa-volume-down"></i>
+                                </span>
+                                <span class="text">Panggil Ulang</span>
+                              </button>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="card border-left-primary shadow py-2 mt-4">
+                            <div class="card-body">
+                              <div class="no-gutters align-items-center">
+                                  Petunjuk Penggunaan :<br>
+                                  <ol>
+                                    <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
+                                    <li>Tekan Tombol <b class="text-danger"><i>"Next Antrian"</i></b> Untuk Memanggil Pasien.</li>
+                                    <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
+                                  </ol>
+                                  Note : Jika Ingin Memulai Antrian Dari Awal Tekan Tombol <b class="text-danger"><i>"Reset"</i></b>.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="col-6">
-                      <!-- Button Panggil -->
-                      <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-volume-down"></i>
-                        </span>
-                        <span class="text">Panggil Ulang</span>
-                      </button>
-                    </div>
+                    <!-- Antrian Manual -->
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Coming Soon..!!!</div>
                   </div>
-
                 </div>
               </div>
+
             </div>
 
           </div>
@@ -210,11 +250,13 @@ require_once('../../config.php');
 
   <script>
     $(document).ready(function() {
+      var idPoli = "<?= $poli; ?>";
+
       $("#next").click(function() {
         $.ajax({
           type: "POST",
           url: "../trigger/tambah_antrian.php",
-          data: "id=Poli Gigi",
+          data: "id=idPoli",
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
@@ -225,7 +267,7 @@ require_once('../../config.php');
         $.ajax({
           type: "POST",
           url: "../trigger/panggil_ulang.php",
-          data: "id=Poli Gigi",
+          data: "id=idPoli",
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
@@ -236,7 +278,7 @@ require_once('../../config.php');
         $.ajax({
           type: "POST",
           url: "../trigger/selesai_antrian.php",
-          data: "id=Poli Gigi",
+          data: "id=idPoli",
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
