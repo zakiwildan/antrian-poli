@@ -109,7 +109,13 @@ $poli = $_GET['poli'];
                 <div class="card-header py-3">
                   <div class="row">
                     <div class="col-6 float-left">
-                      <h6 class="mt-1 font-weight-bold text-primary">Antrian Poli Umum</h6>
+                    <?php 
+                        $cekID = mysqli_query($conn, "SELECT nm_poli FROM a_poliklinik WHERE id_poli = '$poli'");
+                        while($nmPoli = mysqli_fetch_assoc($cekID)){
+                    ?>
+                      <h6 class="mt-1 font-weight-bold text-primary">Antrian <?= $nmPoli['nm_poli']; ?></h6>
+                    
+                    <?php }; ?>
                     </div>
                     <div class="col-6 float-right text-right">
                       <button class="btn btn-danger btn-icon-split btn-sm" id="reset">
@@ -250,13 +256,13 @@ $poli = $_GET['poli'];
 
   <script>
     $(document).ready(function() {
-      var idPoli = "<?= $poli; ?>";
-
+      idPoli = <?=  json_encode($poli); ?>;
+      console.log(idPoli);
       $("#next").click(function() {
         $.ajax({
           type: "POST",
           url: "../trigger/tambah_antrian.php",
-          data: "id=idPoli",
+          data: 'id='+idPoli,
           success: function(html) {
             $("#nomor-antrian").html(html)
           }

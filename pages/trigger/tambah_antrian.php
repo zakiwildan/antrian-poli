@@ -441,7 +441,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoliumum').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli KIA") {
+        } elseif ($id == "U002") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -450,7 +450,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolikia').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Geriatri") {
+        } elseif ($id == "U004") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -459,7 +459,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoligeriatri').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Gigi") {
+        } elseif ($id == "U005") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -468,7 +468,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoligigi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Rehabilitasi Medik") {
+        } elseif ($id == "U006") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -477,7 +477,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolirehabmedik').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Fisioterapi") {
+        } elseif ($id == "U003") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -486,7 +486,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolifisioterapi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Anak") {
+        } elseif ($id == "U007") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -495,7 +495,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispanak').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Anastesi") {
+        } elseif ($id == "U008") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -504,7 +504,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispanastesi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Bedah Umum") {
+        } elseif ($id == "U009") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -513,7 +513,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispbu').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Gigi") {
+        } elseif ($id == "U010") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -522,7 +522,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispgigi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Gigi Bedah Mulut") {
+        } elseif ($id == "U011") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -531,7 +531,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispgigibu').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Jantung") {
+        } elseif ($id == "U012") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -540,7 +540,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispjantung').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Kandungan") {
+        } elseif ($id == "U013") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -549,7 +549,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispkandungan').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Kulit dan Kelamin") {
+        } elseif ($id == "U014") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -558,7 +558,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispkk').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Mata") {
+        } elseif ($id == "U015") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -567,7 +567,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispmata').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Orthopedy") {
+        } elseif ($id == "U016") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -576,7 +576,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolisportho').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Paru") {
+        } elseif ($id == "U017") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -585,7 +585,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispparu').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Penyakit Dalam") {
+        } elseif ($id == "U018") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -594,7 +594,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolisppd').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Syaraf") {
+        } elseif ($id == "U019") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -603,7 +603,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispsyaraf').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis THT") {
+        } elseif ($id == "U020") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -612,7 +612,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolisptht').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "Poli Spesialis Urologi") {
+        } elseif ($id == "U021") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
