@@ -153,7 +153,7 @@ require_once('config.php');
                                                         <td><?= $rowData['tgl_registrasi'] ?></td>
                                                         <td><?= $rowData['nm_dokter']; ?></td>
                                                         <td align="center">
-                                                            <a class="btn btn-primary btn-circle btn-sm" href="pages/antrian/poli_tujuan.php?poli=<?= $rowData['kd_poli'] ?>&dokter<?= $rowData['kd_dokter'] ?>">
+                                                            <a class="btn btn-primary btn-circle btn-sm" href="pages/antrian/poli_khanza.php?poli=<?= $rowData['kd_poli'] ?>&dokter=<?= $rowData['kd_dokter'] ?>">
                                                                 <i class="fas fa-check"></i>
                                                             </a>
                                                         </td>
