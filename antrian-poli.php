@@ -62,9 +62,17 @@ require_once('config.php');
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link" href="pages/antrian/antrian-poli.php">
+        <a class="nav-link" href="antrian-poli.php">
           <i class="fas fa-door-open"></i>
           <span>Antrian Poli</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="antrian-khanza.php">
+          <i class="fas fa-user-friends"></i>
+          <span>Antrian Khanza</span>
         </a>
       </li>
 

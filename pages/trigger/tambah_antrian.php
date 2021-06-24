@@ -7,11 +7,11 @@ include "../../config.php";
 $id = $_POST['id'];
 
 $jumlahAntrian = 0;
-$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND id_poli = '$id' AND status != 'selesai'");
+$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND id_poli = '$id' AND status = '-' AND keterangan = 'otomatis'");
 $jumlahAntrian = mysqli_num_rows($cekAntrian);
 
 $tambahAntrian = $jumlahAntrian + 1;
-$query = mysqli_query($conn, "INSERT INTO a_antrian (no_urut, tgl_periksa, id_poli) VALUES ('$tambahAntrian', '$date', '$id')");
+$query = mysqli_query($conn, "INSERT INTO a_antrian (no_urut, tgl_periksa, id_poli, keterangan, status) VALUES ('$tambahAntrian', '$date', '$id', 'otomatis', '-')");
 echo "$tambahAntrian";
 
 $nomor = (string)$tambahAntrian;
