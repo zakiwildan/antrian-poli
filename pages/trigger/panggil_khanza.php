@@ -5,16 +5,16 @@ include "../../config.php";
 
 //Deklarasi Parameter ID
 $id = $_POST['id'];
+$dokter = $_POST['dokter'];
 
-$jumlahAntrian = 0;
-$cekAntrian = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND id_poli = '$id' AND status = '-' AND keterangan = 'otomatis'");
-$jumlahAntrian = mysqli_num_rows($cekAntrian);
+$cekAntrian = mysqli_query($conn2, "SELECT min(no_reg) as no_reg FROM reg_periksa WHERE kd_dokter = '$dokter' AND kd_poli = '$id' AND tgl_registrasi = '$date' AND stts != 'Sudah' AND stts != 'Batal' AND stts != 'Dirawat'");
+$jumlahAntrian = mysqli_fetch_assoc($cekAntrian);
 
-$tambahAntrian = $jumlahAntrian + 1;
-$query = mysqli_query($conn, "INSERT INTO a_antrian (no_urut, tgl_periksa, id_poli, keterangan, status) VALUES ('$tambahAntrian', '$date', '$id', 'otomatis', '-')");
+$tambahAntrian = $jumlahAntrian['no_reg'];
 echo "$tambahAntrian";
 
-$nomor = (string)$tambahAntrian;
+$pisah = ltrim($tambahAntrian, '0');
+$nomor = (string)$pisah;
 $panjang = strlen($nomor);
 $antrian = $nomor;
 $adaantrian = 1;
@@ -432,7 +432,7 @@ $adaantrian = 1;
         }, totalwaktu);
 
         <?php
-        if ($id == 'U001') {
+        if ($id == 'U0001') {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {

@@ -141,7 +141,7 @@ require_once('config.php');
                                                 $query_Poli = "SELECT poliklinik.kd_poli, poliklinik.nm_poli, reg_periksa.tgl_registrasi, dokter.kd_dokter, dokter.nm_dokter from reg_periksa 
                                                                     JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli 
                                                                     JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter 
-                                                                    where reg_periksa.stts ='Belum' and reg_periksa.tgl_registrasi = '$date' and poliklinik.kd_poli <> 'IGDK' GROUP BY kd_poli";
+                                                                    where reg_periksa.stts ='Belum' and reg_periksa.tgl_registrasi = '$date' and poliklinik.kd_poli <> 'IGDK' GROUP BY dokter.kd_dokter";
                                                 $getData = mysqli_query($conn2, $query_Poli);
 
                                                 while ($rowData = mysqli_fetch_assoc($getData)) {
