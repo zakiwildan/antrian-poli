@@ -441,7 +441,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoliumum').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U002") {
+        } elseif ($id == "U0008") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -450,7 +450,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolikia').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U004") {
+        } elseif ($id == "U0036") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -459,7 +459,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoligeriatri').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U005") {
+        } elseif ($id == "GIG") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -468,7 +468,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoligigi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U006") {
+        } elseif ($id == "U0041") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -477,7 +477,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolirehabmedik').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U003") {
+        } elseif ($id == "U0015") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -486,7 +486,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolifisioterapi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U007") {
+        } elseif ($id == "U0010") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -495,7 +495,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispanak').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U008") {
+        } elseif ($id == "U0009") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -504,7 +504,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispanastesi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U009") {
+        } elseif ($id == "BED") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -513,7 +513,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispbu').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U010") {
+        } elseif ($id == "U0026") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -522,7 +522,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispgigi').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U011") {
+        } elseif ($id == "BDM") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -531,7 +531,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispgigibu').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U012") {
+        } elseif ($id == "JAN") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -540,7 +540,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispjantung').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U013") {
+        } elseif ($id == "OBG") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -549,7 +549,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispkandungan').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U014") {
+        } elseif ($id == "U0018") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -558,7 +558,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispkk').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U015") {
+        } elseif ($id == "U0005") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -567,7 +567,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispmata').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U016") {
+        } elseif ($id == "U0029") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -576,7 +576,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolisportho').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U017") {
+        } elseif ($id == "PAR") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -585,7 +585,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispparu').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U018") {
+        } elseif ($id == "INT") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -594,7 +594,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolisppd').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U019") {
+        } elseif ($id == "SAR") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -603,7 +603,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolispsyaraf').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U020") {
+        } elseif ($id == "THT") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {
@@ -612,7 +612,7 @@ $adaantrian = 1;
                 document.getElementById('suarabelpolisptht').play();
             }, totalwaktu);
         <?php
-        } elseif ($id == "U021") {
+        } elseif ($id == "URO") {
         ?>
             totalwaktu = totalwaktu + 2700;
             setTimeout(function() {

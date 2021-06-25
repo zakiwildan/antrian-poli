@@ -125,15 +125,6 @@ $dokter = $_GET['dokter'];
                         <h6 class="mt-1 font-weight-bold text-primary">Antrian <?= $nmPoli['nm_poli']; ?></h6>
 
                       <?php }; ?>
-                    </div>
-                    <div class="col-6 float-right text-right">
-                      <button class="btn btn-danger btn-icon-split btn-sm" id="reset">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-redo"></i>
-                        </span>
-                        <span class="text">Reset</span>
-                      </button>
-                    </div>
                   </div>
                 </div>
                 <div class="card-body">
@@ -169,25 +160,24 @@ $dokter = $_GET['dokter'];
 
                           <!-- Batas Tombol -->
                           <div class="row mb-4 text-center">
-                            <div class="col-6">
+                            <div class="col-6 float-left">
                               <!-- Button Next -->
                               <button class="btn btn-primary btn-icon-split btn-lg" id="next">
                                 <span class="icon text-white-50">
                                   <i class="fas fa-arrow-right"></i>
                                 </span>
-                                <span class="text">Next Antrian</span>
+                                <span class="text">Panggil Antrian</span>
                               </button>
                             </div>
 
-                            <div class="col-6">
-                              <!-- Button Panggil -->
+                            <!-- <div class="col-6">
                               <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
                                 <span class="icon text-white-50">
                                   <i class="fas fa-volume-down"></i>
                                 </span>
                                 <span class="text">Panggil Ulang</span>
                               </button>
-                            </div>
+                            </div> -->
 
                           </div>
                         </div>
@@ -199,10 +189,10 @@ $dokter = $_GET['dokter'];
                                 Petunjuk Penggunaan :<br>
                                 <ol>
                                   <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
-                                  <li>Tekan Tombol <b class="text-danger"><i>"Next Antrian"</i></b> Untuk Memanggil Pasien.</li>
-                                  <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
+                                  <li>Tekan Tombol <b class="text-danger"><i>"Panggil Antrian"</i></b> Untuk Memanggil Pasien.</li>
+                                  <li>Jika Sudah, Jangan Lupa Mengganti Status Pada Menu Registrasi Khanza Menjadi <b class="text-danger"><i>"Sudah"</i></b>.</li>
                                 </ol>
-                                Note : Jika Ingin Memulai Antrian Dari Awal Tekan Tombol <b class="text-danger"><i>"Reset"</i></b>.
+                                Note : Antrian Ini Berdasarkan Dari Nomor Urut Terkecil Yang Terdaftar Di SIM RS Khanza.
                               </div>
                             </div>
                           </div>
