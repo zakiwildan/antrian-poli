@@ -170,15 +170,6 @@ $dokter = $_GET['dokter'];
                               </button>
                             </div>
 
-                            <!-- <div class="col-6">
-                              <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-volume-down"></i>
-                                </span>
-                                <span class="text">Panggil Ulang</span>
-                              </button>
-                            </div> -->
-
                           </div>
                         </div>
 

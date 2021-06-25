@@ -130,8 +130,8 @@ require_once('config.php');
                                                 <tr>
                                                     <th width="10%">Kode Poli</th>
                                                     <th width="30%">Nama Poli</th>
-                                                    <th width="15%">Tgl Periksa</th>
-                                                    <th width="35%">Nama Dokter</th>
+                                                    <th width="12%">Tgl Periksa</th>
+                                                    <th width="38%">Nama Dokter</th>
                                                     <th class="text-center" width="10%">Action</th>
                                                 </tr>
                                             </thead>
