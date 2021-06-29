@@ -125,65 +125,76 @@ $dokter = $_GET['dokter'];
                         <h6 class="mt-1 font-weight-bold text-primary">Antrian <?= $nmPoli['nm_poli']; ?></h6>
 
                       <?php }; ?>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Antrian</a>
                     </div>
-                  </nav>
+                  </div>
+                  <div class="card-body">
+                    <nav>
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Antrian</a>
+                      </div>
+                    </nav>
 
-                  <!-- Isian Menu -->
+                    <!-- Isian Menu -->
 
-                  <div class="tab-content" id="nav-tabContent">
-                    <!-- Antrian Otomatis -->
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="jumbotron mt-4">
-                            <h3>Nomor Yang Dipanggil :</h3>
-                            <hr class="my-4">
-                            <h1 class="display-3 text-center" id="nomor-antrian">
-                              <?php
-                              $qAntrian = mysqli_query($conn, "SELECT max(a_antrian.no_urut) as no_urut FROM a_antrian JOIN a_poliklinik ON a_antrian.id_poli = a_poliklinik.id_poli WHERE a_antrian.id_poli = '$poli' AND a_antrian.keterangan = 'otomatis' AND a_antrian.status = '-'");
-                              while ($cekNomor = mysqli_fetch_assoc($qAntrian)) {
-                                if ($cekNomor['no_urut'] <= 0) {
-                                  echo "Kosong";
-                                } else {
-                                  echo $cekNomor['no_urut'];
-                                }
-                              }
-                              ?>
-                            </h1>
-                          </div>
-
-                          <!-- Batas Tombol -->
-                          <div class="row mb-4 text-center">
-                            <div class="col-6 float-left">
-                              <!-- Button Next -->
-                              <button class="btn btn-primary btn-icon-split btn-lg" id="next">
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="text">Panggil Antrian</span>
-                              </button>
+                    <div class="tab-content" id="nav-tabContent">
+                      <!-- Antrian Otomatis -->
+                      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="jumbotron mt-4">
+                              <h3>Nomor Yang Dipanggil :</h3>
+                              <hr class="my-4">
+                              <h1 class="display-3 text-center" id="nomor-antrian">
+                                <?php
+                                $qAntrian = mysqli_query($conn2, "SELECT min(no_reg) as no_reg FROM reg_periksa WHERE kd_dokter = '$dokter' AND kd_poli = '$poli' AND tgl_registrasi = '$date' AND stts != 'Sudah' AND stts != 'Batal' AND stts != 'Dirawat'");
+                                $cekNomor = mysqli_fetch_assoc($qAntrian);
+                                  if ($cekNomor['no_reg'] <= 0) {
+                                    echo "Kosong";
+                                  } else {
+                                    echo $cekNomor['no_reg'];
+                                  }
+                                ?>
+                              </h1>
                             </div>
 
-                          </div>
-                        </div>
+                            <!-- Batas Tombol -->
+                            <div class="row mb-4 text-center">
 
-                        <div class="col-6">
-                          <div class="card border-left-primary shadow py-2 mt-4">
-                            <div class="card-body">
-                              <div class="no-gutters align-items-center">
-                                Petunjuk Penggunaan :<br>
-                                <ol>
-                                  <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
-                                  <li>Tekan Tombol <b class="text-danger"><i>"Panggil Antrian"</i></b> Untuk Memanggil Pasien.</li>
-                                  <li>Jika Sudah, Jangan Lupa Mengganti Status Pada Menu Registrasi Khanza Menjadi <b class="text-danger"><i>"Sudah"</i></b>.</li>
-                                </ol>
-                                Note : Antrian Ini Berdasarkan Dari Nomor Urut Terkecil Yang Terdaftar Di SIM RS Khanza.
+                              <div class="col-6 float-left">
+                                <!-- Button Next -->
+                                <button class="btn btn-primary btn-icon-split btn-lg" id="next">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-volume-down"></i>
+                                  </span>
+                                  <span class="text">Panggil Antrian</span>
+                                </button>
+                              </div>
+
+                              <div class="col-6">
+                                <!-- Button Sudah -->
+                                <button class="btn btn-success btn-icon-split btn-lg" id="sudah">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-check"></i>
+                                  </span>
+                                  <span class="text">Sudah Panggil</span>
+                                </button>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="card border-left-primary shadow py-2 mt-4">
+                              <div class="card-body">
+                                <div class="no-gutters align-items-center">
+                                  Petunjuk Penggunaan :<br>
+                                  <ol>
+                                    <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
+                                    <li>Tekan Tombol <b class="text-danger"><i>"Panggil Antrian"</i></b> Untuk Memanggil Pasien.</li>
+                                    <li>Jika Sudah, Jangan Lupa Mengganti Status Pada Menu Registrasi Khanza Menjadi <b class="text-danger"><i>"Sudah"</i></b>.</li>
+                                  </ol>
+                                  Note : Antrian Ini Berdasarkan Dari Nomor Urut Terkecil Yang Terdaftar Di SIM RS Khanza.
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -192,76 +203,93 @@ $dokter = $_GET['dokter'];
                     </div>
                   </div>
                 </div>
+
               </div>
 
             </div>
 
-          </div>
 
+          </div>
+          <!-- /.container-fluid -->
 
         </div>
-        <!-- /.container-fluid -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; RS MUHAMMADIYAH GRESIK</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
 
       </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; RS MUHAMMADIYAH GRESIK</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+      <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../../js/sb-admin-2.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="../../js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="../../vendor/chart.js/Chart.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        idPoli = <?= json_encode($poli); ?>;
+        kdDokter = <?= json_encode($dokter); ?>;
+        noReg = <?= json_encode($cekNomor['no_reg']); ?>;
 
-  <script>
-    $(document).ready(function() {
-      idPoli = <?= json_encode($poli); ?>;
-      kdDokter = <?= json_encode($dokter); ?>;
+        $("#next").click(function() {
+          $.ajax({
+            type: "POST",
+            url: "../trigger/panggil_khanza.php",
+            data: {
+              id: idPoli,
+              dokter: kdDokter,
+            },
+            success: function(html) {
+              $("#nomor-antrian").html(html)
+            }
 
-      $("#next").click(function() {
-        $.ajax({
-          type: "POST",
-          url: "../trigger/panggil_khanza.php",
-          data: {
-            id: idPoli,
-            dokter: kdDokter,
-          },
-          success: function(html) {
-            $("#nomor-antrian").html(html)
-          }
+          })
 
-        })
+        });
 
-      });
+        $("#sudah").click(function() {
+          $.ajax({
+            type: "POST",
+            url: "../trigger/sudah_panggil.php",
+            data: {
+              id: idPoli,
+              dokter: kdDokter,
+              noreg: noReg
+            },
+            success: function(html) {
+              $("#nomor-antrian").html(html)
+            }
 
-    })
-  </script>
+          })
+
+        });
+
+      })
+    </script>
 
 </body>
 

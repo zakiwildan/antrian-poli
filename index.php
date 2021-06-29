@@ -1,3 +1,9 @@
+<?php 
+
+include "config.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -115,11 +121,16 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kunjungan Hari Ini</div>
+                                            <?php 
+                                                $cekKunjungan = "SELECT count(no_reg) as no_urut FROM reg_periksa WHERE tgl_registrasi = '$date'";
+                                                $qKunjungan = mysqli_query($conn2, $cekKunjungan);
+                                                $showHasil = mysqli_fetch_assoc($qKunjungan);
+                                            ?>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $showHasil['no_urut']; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user-friends fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
