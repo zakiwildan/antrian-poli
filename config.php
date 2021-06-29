@@ -6,10 +6,10 @@ define ("DB_USER","root");
 define ("DB_PASS","");
 define ("DB_NAME","antrian_poli");
 
-define ("DB_HOST2","192.168.1.104");
-define ("DB_USER2","server");
-define ("DB_PASS2","ma3stro@rsmg");
-define ("DB_NAME2","sik_rsmg");
+define ("DB_HOST2","");
+define ("DB_USER2","r");
+define ("DB_PASS2","");
+define ("DB_NAME2","");
 
 $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
