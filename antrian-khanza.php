@@ -129,19 +129,44 @@ require_once('config.php');
                                             <thead>
                                                 <tr>
                                                     <th width="10%">Kode Poli</th>
-                                                    <th width="30%">Nama Poli</th>
-                                                    <th width="12%">Tgl Periksa</th>
-                                                    <th width="38%">Nama Dokter</th>
+                                                    <th width="28%">Nama Poli</th>
+                                                    <th width="40%">Nama Dokter</th>
                                                     <th class="text-center" width="10%">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
 
                                                 <?php
-                                                $query_Poli = "SELECT poliklinik.kd_poli, poliklinik.nm_poli, reg_periksa.tgl_registrasi, dokter.kd_dokter, dokter.nm_dokter from reg_periksa 
-                                                                    JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli 
-                                                                    JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter 
-                                                                    where reg_periksa.stts ='Belum' and reg_periksa.tgl_registrasi = '$date' and poliklinik.kd_poli <> 'IGDK' GROUP BY dokter.kd_dokter";
+                                                
+                                                $getHari = mysqli_query($conn2, "SELECT DAYNAME('$date')");
+                                                $hari = mysqli_fetch_array($getHari);
+
+                                                if($hari[0] == "Sunday"){
+                                                    $namahari = "AKHAD";
+                                                }else if($hari[0] == "Monday"){
+                                                    $namahari = "SENIN";
+                                                }else if($hari[0] == "Tuesday"){
+                                                       $namahari = "SELASA";
+                                                }else if($hari[0] == "Wednesday"){
+                                                    $namahari = "RABU";
+                                                }else if($hari[0] == "Thursday"){
+                                                    $namahari = "KAMIS";
+                                                }else if($hari[0] == "Friday"){
+                                                    $namahari = "JUMAT";
+                                                }else if($hari[0] == "Saturday"){
+                                                    $namahari = "SABTU";
+                                                }
+                                                
+                                                $query_Poli = "SELECT dokter.nm_dokter,
+                                                                poliklinik.kd_poli, 
+                                                                poliklinik.nm_poli, 
+                                                                dokter.kd_dokter 
+                                                                FROM jadwal INNER JOIN dokter 
+                                                                INNER JOIN poliklinik 
+                                                                on dokter.kd_dokter=jadwal.kd_dokter 
+                                                                AND jadwal.kd_poli=poliklinik.kd_poli 
+                                                                WHERE jadwal.hari_kerja='$namahari'";
+
                                                 $getData = mysqli_query($conn2, $query_Poli);
 
                                                 while ($rowData = mysqli_fetch_assoc($getData)) {
@@ -150,7 +175,6 @@ require_once('config.php');
                                                     <tr>
                                                         <td><?= $rowData['kd_poli'] ?></td>
                                                         <td><?= $rowData['nm_poli'] ?></td>
-                                                        <td><?= $rowData['tgl_registrasi'] ?></td>
                                                         <td><?= $rowData['nm_dokter']; ?></td>
                                                         <td align="center">
                                                             <a class="btn btn-primary btn-circle btn-sm" href="pages/antrian/poli_khanza.php?poli=<?= $rowData['kd_poli'] ?>&dokter=<?= $rowData['kd_dokter'] ?>">
