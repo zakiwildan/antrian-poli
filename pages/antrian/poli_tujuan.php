@@ -149,8 +149,16 @@ $poli = $_GET['poli'];
                     <!-- Antrian Otomatis -->
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row">
+                        <div class="col-6 mt-4">
+                          <div class="form-group">
+                            <label for="inputPoli">Masukkan Nomor Poli</label>
+                            <input type="text" class="form-control" id="inputPoli">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="col-6">
-                          <div class="jumbotron mt-4">
+                          <div class="jumbotron mt-2">
                             <h3>Nomor Yang Dipanggil :</h3>
                             <hr class="my-4">
                             <h1 class="display-3 text-center" id="nomor-antrian">
@@ -198,6 +206,7 @@ $poli = $_GET['poli'];
                               <div class="no-gutters align-items-center">
                                 Petunjuk Penggunaan :<br>
                                 <ol>
+                                  <li>Pilih Poli Yang Digunakan.</li>
                                   <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
                                   <li>Tekan Tombol <b class="text-danger"><i>"Next Antrian"</i></b> Untuk Memanggil Pasien.</li>
                                   <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
@@ -327,10 +336,14 @@ $poli = $_GET['poli'];
 
       console.log(idPoli);
       $("#next").click(function() {
+        inputPoli = document.getElementById('inputPoli').value;
         $.ajax({
           type: "POST",
           url: "../trigger/tambah_antrian.php",
-          data: 'id=' + idPoli,
+          data: {
+            id: idPoli,
+            inputPoli: inputPoli
+          },
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
@@ -349,10 +362,14 @@ $poli = $_GET['poli'];
       })
 
       $("#reset").click(function() {
+        inputPoli = document.getElementById('inputPoli').value;
         $.ajax({
           type: "POST",
           url: "../trigger/selesai_antrian.php",
-          data: 'id=' + idPoli,
+          data: {
+            id: idPoli,
+            inputPoli: inputPoli
+          },
           success: function(html) {
             $("#nomor-antrian").html(html)
           }
