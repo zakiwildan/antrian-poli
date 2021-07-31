@@ -7,18 +7,20 @@ include "../../config.php";
 $id = $_POST['id'];
 $inputPoli = $_POST['inputPoli'];
 
-$cekPoli = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli = '$inputPoli'");
+$cekPoli = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli = '$inputPoli' AND id_poli != '$id'");
 $cekAntrian = mysqli_num_rows($cekPoli);
 
 if ($cekAntrian >= 1) {
 
 ?>
+    <!-- Alert -->
     <script type="text/javascript">
         alert('Poli Sudah Dipakai');
     </script>
 <?php
-
+    //Tampilan Pesan Keluar
     echo "Kosong";
+
 } else {
 
     $jumlahAntrian = 0;
