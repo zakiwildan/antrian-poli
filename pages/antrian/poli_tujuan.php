@@ -70,12 +70,12 @@ $poli = $_GET['poli'];
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="../../antrian-khanza.php">
           <i class="fas fa-user-friends"></i>
           <span>Antrian Khanza</span>
         </a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -334,7 +334,8 @@ $poli = $_GET['poli'];
     $(document).ready(function() {
       idPoli = <?= json_encode($poli); ?>;
 
-      console.log(idPoli);
+
+
       $("#next").click(function() {
         inputPoli = document.getElementById('inputPoli').value;
         $.ajax({
@@ -345,7 +346,7 @@ $poli = $_GET['poli'];
             inputPoli: inputPoli
           },
           success: function(html) {
-            $("#nomor-antrian").html(html)
+            $("#nomor-antrian").html(html);
           }
         })
       })

@@ -7,15 +7,36 @@ include "../../config.php";
 $id = $_POST['id'];
 $inputPoli = $_POST['inputPoli'];
 
-$cekPoli = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli = '$inputPoli' AND id_poli != '$id'");
-$cekAntrian = mysqli_num_rows($cekPoli);
+//Cek Ruang Poli Apakah Dipakai Atau Tidak
+$cekRuang = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli = '$inputPoli' AND id_poli != '$id'");
 
-if ($cekAntrian >= 1) {
+//Cek Poli Sudah Dipakai Di Ruang lain atau Tidak
+$cekPoli = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli != '$inputPoli' AND id_poli = '$id'");
+
+//Hasil Cek Ruang Poli Dipakai atau Tidak
+$hasilAntrian = mysqli_num_rows($cekRuang);
+
+//Hasil Cek Poli Sudah Ada atau Belim
+$hasilPoli = mysqli_num_rows($cekPoli);
+
+//Ambil Nama Poli
+$cekNMPoli = mysqli_fetch_assoc($cekRuang);
+
+if ($hasilAntrian >= 1) {
+?>
+    <!-- Alert -->
+    <script type="text/javascript">
+        alert('Ruangan Poli Sudah digunakan Poli Lain');
+    </script>
+<?php
+    //Tampilan Pesan Keluar
+    echo "Kosong";
+} else if ($hasilPoli >= 1) {
 
 ?>
     <!-- Alert -->
     <script type="text/javascript">
-        alert('Poli Sudah Dipakai');
+        alert('Poliklinik Sudah Dipakai Di Ruangan Poli Lain');
     </script>
 <?php
     //Tampilan Pesan Keluar

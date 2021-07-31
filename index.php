@@ -69,12 +69,12 @@ include "config.php";
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="antrian-khanza.php">
                     <i class="fas fa-user-friends"></i>
                     <span>Antrian Khanza</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
