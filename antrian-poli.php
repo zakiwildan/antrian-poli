@@ -154,7 +154,7 @@ require_once('config.php');
                             <td><?= $rowData['id_poli'] ?></td>
                             <td><?= $rowData['nm_poli'] ?></td>
                             <td align="center">
-                              <a class="btn btn-primary btn-circle btn-sm" href="pages/antrian/poli_tujuan.php?poli=<?= $rowData['id_poli'] ?>">
+                              <a class="btn btn-primary btn-circle btn-sm" target="_blank" href="pages/antrian/poli_tujuan.php?poli=<?= $rowData['id_poli'] ?>">
                                 <i class="fas fa-check"></i>
                               </a>
                             </td>

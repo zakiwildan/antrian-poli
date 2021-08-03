@@ -1,9 +1,9 @@
 <?php
 if (preg_match ('/config.php/', basename($_SERVER['PHP_SELF']))) die ('Sssssttttt...!!!, Hayoo mau ngapain?? :v');
 
-define ("DB_HOST","192.168.1.104");
-define ("DB_USER","server");
-define ("DB_PASS","ma3stro@rsmg");
+define ("DB_HOST","localhost");
+define ("DB_USER","root");
+define ("DB_PASS","");
 define ("DB_NAME","antrian_poli");
 
 define ("DB_HOST2","192.168.1.104");

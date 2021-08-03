@@ -2,12 +2,11 @@
 require_once('../../config.php');
 $poli = $_GET['poli'];
 
-$queryPemakaian = "SELECT no_poli FROM a_antrian WHERE id_poli = '$poli' AND status = '-' AND tgl_periksa = '$date'";
+$queryPemakaian = "SELECT no_poli FROM a_antrian WHERE id_poli = '$poli' AND status = '-' AND tgl_periksa = '$date' LIMIT 1";
 $cekPemakaian = mysqli_query($conn, $queryPemakaian);
 //Cek Ada Data Atau Tidak
+$outputHasil = mysqli_fetch_assoc($cekPemakaian);
 $hitungCek = mysqli_num_rows($cekPemakaian);
-//Output Hasil Query
-$OutputCek = mysqli_fetch_assoc($cekPemakaian);
 ?>
 
 <!DOCTYPE html>
@@ -163,24 +162,49 @@ $OutputCek = mysqli_fetch_assoc($cekPemakaian);
                   <div class="tab-content" id="nav-tabContent">
                     <!-- Antrian Otomatis -->
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                      <!-- Input No. Ruangan Poli -->
                       <div class="row">
-                        <div class="col-6 mt-4">
+                        <div class="col-8 mt-4">
                           <div class="form-group">
-                            <label for="inputPoli">Masukkan Nomor Poli</label>
-                            <?php
-                            if($hitungCek > 0) {
-                            ?>
-                              <input type="text" class="form-control" id="inputPoli" value="<?= $OutputCek['no_poli']; ?>">
-                            <?php
-                            } else {
-                            ?>
-                              <input type="text" class="form-control" id="inputPoli">
-                            <?php
-                            }
-                            ?>
+                            <h5>Pilih Ruangan Poli Yang Digunakan : </h4>
                           </div>
+                          <hr>
+                          <div class="form-group">
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" <?php echo ($outputHasil['no_poli'] == 1 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio1">Poli 1</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" <?php echo ($outputHasil['no_poli'] == 2 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio2">Poli 2</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" <?php echo ($outputHasil['no_poli'] == 3 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio3">Poli 3</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" <?php echo ($outputHasil['no_poli'] == 4 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio4">Poli 4</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" <?php echo ($outputHasil['no_poli'] == 5 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio5">Poli 5</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="6" <?php echo ($outputHasil['no_poli'] == 6 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio6">Poli 6</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="7" <?php echo ($outputHasil['no_poli'] == 7 )?'checked':'' ?>>
+                              <label class="form-check-label" for="inlineRadio7">Poli 7</label>
+                            </div>
+                          </div>
+                          <hr>
                         </div>
                       </div>
+
+                      <!-- Dashboard Antrian -->
                       <div class="row">
                         <div class="col-6">
                           <div class="jumbotron mt-2">
@@ -367,7 +391,8 @@ $OutputCek = mysqli_fetch_assoc($cekPemakaian);
       idPoli = <?= json_encode($poli); ?>;
 
       $("#next").click(function() {
-        inputPoli = document.getElementById('inputPoli').value;
+        // inputPoli = document.getElementById('inputPoli').value;
+        inputPoli = $("input[name='inlineRadioOptions']:checked").val();
         if (inputPoli == "") {
           alert("Isi Dahulu Nomor Poli Yang Digunakan...");
         } else {
@@ -397,7 +422,8 @@ $OutputCek = mysqli_fetch_assoc($cekPemakaian);
       })
 
       $("#reset").click(function() {
-        inputPoli = document.getElementById('inputPoli').value;
+        // inputPoli = document.getElementById('inputPoli').value;
+        inputPoli = $("input[name='inlineRadioOptions']:checked").val();
         if (inputPoli == "") {
           alert("Isi Dahulu Nomor Poli Yang Digunakan...");
         } else {
@@ -409,7 +435,6 @@ $OutputCek = mysqli_fetch_assoc($cekPemakaian);
               inputPoli: inputPoli
             },
             success: function(html) {
-              document.getElementById("inputPoli").value = ""; 
               $("#nomor-antrian").html(html);
             }
           })
