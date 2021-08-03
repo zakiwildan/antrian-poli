@@ -1,6 +1,13 @@
 <?php
 require_once('../../config.php');
 $poli = $_GET['poli'];
+
+$queryPemakaian = "SELECT no_poli FROM a_antrian WHERE id_poli = '$poli' AND status = '-' AND tgl_periksa = '$date'";
+$cekPemakaian = mysqli_query($conn, $queryPemakaian);
+//Cek Ada Data Atau Tidak
+$hitungCek = mysqli_num_rows($cekPemakaian);
+//Output Hasil Query
+$OutputCek = mysqli_fetch_assoc($cekPemakaian);
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +57,7 @@ $poli = $_GET['poli'];
       <li class="nav-item">
         <a class="nav-link" href="../../index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Home</span></a>
       </li>
 
       <!-- Divider -->
@@ -76,6 +83,14 @@ $poli = $_GET['poli'];
           <span>Antrian Khanza</span>
         </a>
       </li> -->
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="../../dashboard.php" target="_blank">
+          <i class="fas fa-desktop"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -152,7 +167,17 @@ $poli = $_GET['poli'];
                         <div class="col-6 mt-4">
                           <div class="form-group">
                             <label for="inputPoli">Masukkan Nomor Poli</label>
-                            <input type="text" class="form-control" id="inputPoli">
+                            <?php
+                            if($hitungCek > 0) {
+                            ?>
+                              <input type="text" class="form-control" id="inputPoli" value="<?= $OutputCek['no_poli']; ?>">
+                            <?php
+                            } else {
+                            ?>
+                              <input type="text" class="form-control" id="inputPoli">
+                            <?php
+                            }
+                            ?>
                           </div>
                         </div>
                       </div>
@@ -163,7 +188,14 @@ $poli = $_GET['poli'];
                             <hr class="my-4">
                             <h1 class="display-3 text-center" id="nomor-antrian">
                               <?php
-                              $qAntrian = mysqli_query($conn, "SELECT max(a_antrian.no_urut) as no_urut FROM a_antrian JOIN a_poliklinik ON a_antrian.id_poli = a_poliklinik.id_poli WHERE a_antrian.id_poli = '$poli' AND a_antrian.keterangan = 'otomatis' AND a_antrian.status = '-'");
+                              $qAntrian = mysqli_query($conn, "SELECT max(a_antrian.no_urut) as no_urut 
+                                                                FROM a_antrian 
+                                                                JOIN a_poliklinik 
+                                                                  ON a_antrian.id_poli = a_poliklinik.id_poli 
+                                                                WHERE a_antrian.id_poli = '$poli' 
+                                                                  AND a_antrian.keterangan = 'otomatis' 
+                                                                  AND a_antrian.tgl_periksa = '$date' 
+                                                                  AND a_antrian.status = '-'");
                               while ($cekNomor = mysqli_fetch_assoc($qAntrian)) {
                                 if ($cekNomor['no_urut'] <= 0) {
                                   echo "Kosong";
@@ -334,21 +366,23 @@ $poli = $_GET['poli'];
     $(document).ready(function() {
       idPoli = <?= json_encode($poli); ?>;
 
-
-
       $("#next").click(function() {
         inputPoli = document.getElementById('inputPoli').value;
-        $.ajax({
-          type: "POST",
-          url: "../trigger/tambah_antrian.php",
-          data: {
-            id: idPoli,
-            inputPoli: inputPoli
-          },
-          success: function(html) {
-            $("#nomor-antrian").html(html);
-          }
-        })
+        if (inputPoli == "") {
+          alert("Isi Dahulu Nomor Poli Yang Digunakan...");
+        } else {
+          $.ajax({
+            type: "POST",
+            url: "../trigger/tambah_antrian.php",
+            data: {
+              id: idPoli,
+              inputPoli: inputPoli
+            },
+            success: function(html) {
+              $("#nomor-antrian").html(html);
+            }
+          })
+        }
       })
 
       $("#repeat").click(function() {
@@ -364,17 +398,22 @@ $poli = $_GET['poli'];
 
       $("#reset").click(function() {
         inputPoli = document.getElementById('inputPoli').value;
-        $.ajax({
-          type: "POST",
-          url: "../trigger/selesai_antrian.php",
-          data: {
-            id: idPoli,
-            inputPoli: inputPoli
-          },
-          success: function(html) {
-            $("#nomor-antrian").html(html)
-          }
-        })
+        if (inputPoli == "") {
+          alert("Isi Dahulu Nomor Poli Yang Digunakan...");
+        } else {
+          $.ajax({
+            type: "POST",
+            url: "../trigger/selesai_antrian.php",
+            data: {
+              id: idPoli,
+              inputPoli: inputPoli
+            },
+            success: function(html) {
+              document.getElementById("inputPoli").value = ""; 
+              $("#nomor-antrian").html(html);
+            }
+          })
+        }
       });
 
       $("#manual").click(function() {

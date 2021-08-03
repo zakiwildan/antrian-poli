@@ -51,7 +51,7 @@ $dokter = $_GET['dokter'];
       <li class="nav-item">
         <a class="nav-link" href="../../index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Home</span></a>
       </li>
 
       <!-- Divider -->
@@ -75,6 +75,14 @@ $dokter = $_GET['dokter'];
         <a class="nav-link" href="../../antrian-khanza.php">
           <i class="fas fa-user-friends"></i>
           <span>Antrian Khanza</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard.php" target="_blank">
+          <i class="fas fa-desktop"></i>
+          <span>Dashboard</span>
         </a>
       </li>
 
@@ -148,11 +156,11 @@ $dokter = $_GET['dokter'];
                                 <?php
                                 $qAntrian = mysqli_query($conn2, "SELECT min(no_reg) as no_reg FROM reg_periksa WHERE kd_dokter = '$dokter' AND kd_poli = '$poli' AND tgl_registrasi = '$date' AND stts != 'Sudah' AND stts != 'Batal' AND stts != 'Dirawat'");
                                 $cekNomor = mysqli_fetch_assoc($qAntrian);
-                                  if ($cekNomor['no_reg'] <= 0) {
-                                    echo "Kosong";
-                                  } else {
-                                    echo $cekNomor['no_reg'];
-                                  }
+                                if ($cekNomor['no_reg'] <= 0) {
+                                  echo "Kosong";
+                                } else {
+                                  echo $cekNomor['no_reg'];
+                                }
                                 ?>
                               </h1>
                             </div>

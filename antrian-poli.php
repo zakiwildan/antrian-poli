@@ -49,7 +49,7 @@ require_once('config.php');
       <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Home</span></a>
       </li>
 
       <!-- Divider -->
@@ -75,6 +75,14 @@ require_once('config.php');
           <span>Antrian Khanza</span>
         </a>
       </li> -->
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard.php" target="_blank">
+          <i class="fas fa-desktop"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

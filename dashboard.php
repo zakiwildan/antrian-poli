@@ -38,9 +38,10 @@ include "config.php";
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <div class="d-sm-flex align-items-center justify-content-between">
-                        <h1 class="h3 mb-0 text-gray-800">Antrian Poli RS Muhammadiyah Gresik</h1>
+                <nav class="navbar navbar-expand navbar-light bg-info topbar mb-4 static-top shadow">
+                    <div class="d-sm-flex align-items-center">
+                        <img class="mr-3" width="7%" src="img/logo-rsmg.png" alt="">
+                        <h1 class="h3 mb-0 text-light">Antrian Poli RS Muhammadiyah Gresik</h1>
                     </div>
                 </nav>
                 <!-- End of Topbar -->
@@ -171,6 +172,8 @@ include "config.php";
 
                 </div>
                 <!-- /.container-fluid -->
+
+                <div class="px-0 bg-info text-light font-weight-bold"><marquee class="py-2">Selamat datang di Rumah Sakit Muhammadiyah Gresik | Jujur - Transparan - Kekeluargaan</marquee></div>
 
             </div>
             <!-- End of Main Content -->

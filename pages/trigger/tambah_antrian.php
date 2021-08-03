@@ -26,7 +26,7 @@ if ($hasilAntrian >= 1) {
 ?>
     <!-- Alert -->
     <script type="text/javascript">
-        alert('Ruangan Poli Sudah digunakan Poli Lain');
+        alert('Ruangan Poli Sudah digunakan Poli Lain, Silahkan Cek Dashboard...');
     </script>
 <?php
     //Tampilan Pesan Keluar
@@ -36,7 +36,7 @@ if ($hasilAntrian >= 1) {
 ?>
     <!-- Alert -->
     <script type="text/javascript">
-        alert('Poliklinik Sudah Dipakai Di Ruangan Poli Lain');
+        alert('Poliklinik Sudah Dipakai Di Ruangan Poli Lain, Silahkan Cek Dashboard...');
     </script>
 <?php
     //Tampilan Pesan Keluar
