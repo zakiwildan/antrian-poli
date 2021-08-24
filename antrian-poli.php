@@ -5,7 +5,7 @@ require_once('config.php');
 <!DOCTYPE html>
 <html lang="en">
 
-//Coba Dua
+//
 
 <head>
 
