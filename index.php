@@ -4,8 +4,6 @@ include "config.php";
 
 <!DOCTYPE html>
 <html lang="en">
-
-//dasdasd
  
 <head>
 

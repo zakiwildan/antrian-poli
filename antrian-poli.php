@@ -5,8 +5,6 @@ require_once('config.php');
 <!DOCTYPE html>
 <html lang="en">
 
-//coba - coba 
-
 <head>
 
   <meta charset="utf-8">
