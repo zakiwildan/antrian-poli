@@ -2,8 +2,6 @@
 include "config.php";
 ?>
 
-percobaan saja
-
 <!DOCTYPE html>
 <html lang="en">
 
