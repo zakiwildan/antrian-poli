@@ -68,11 +68,41 @@ $adaantrian = 1;
         //totalwaktu=document.getElementById('suarabel').duration*1000;
         totalwaktu = 3 * 1000;
 
-        //MAINKAN SUARA NOMOR URUT
+        //MAINKAN SUARA PASIEN
         setTimeout(function() {
             document.getElementById('suarabelnomorurut').pause();
             document.getElementById('suarabelnomorurut').currentTime = 0;
             document.getElementById('suarabelnomorurut').play();
+        }, totalwaktu);
+        totalwaktu = totalwaktu + 2000;
+
+        //MAINKAN SUARA POLI
+        setTimeout(function() {
+            document.getElementById('suarapanggilanpoli').pause();
+            document.getElementById('suarapanggilanpoli').currentTime = 0;
+            document.getElementById('suarapanggilanpoli').play();
+        }, totalwaktu);
+        totalwaktu = totalwaktu + 1800;
+
+        //MAINKAN NAMA POLI
+        <?php
+        if ($id == 'U001') {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpoliumum').pause();
+                document.getElementById('suarabelpoliumum').currentTime = 0;
+                document.getElementById('suarabelpoliumum').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 1800;
+        <?php
+        }
+        ?>
+
+        //MAINKAN SUARA NOMOR URUT
+        setTimeout(function() {
+            document.getElementById('suarabelnomorurut2').pause();
+            document.getElementById('suarabelnomorurut2').currentTime = 0;
+            document.getElementById('suarabelnomorurut2').play();
         }, totalwaktu);
         totalwaktu = totalwaktu + 2000;
 
