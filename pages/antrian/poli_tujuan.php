@@ -91,8 +91,6 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
         </a>
       </li> -->
 
-      <!-- Hello -->
-
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="../../dashboard.php" target="_blank">
