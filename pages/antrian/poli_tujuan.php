@@ -1,5 +1,5 @@
 <?php
-require_once('../../config.php');
+require('../../config.php');
 $poli = $_GET['poli'];
 
 $queryPemakaian = "SELECT no_poli FROM a_antrian WHERE id_poli = '$poli' AND status = '-' AND tgl_periksa = '$date' LIMIT 1";
@@ -72,6 +72,14 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
         <a class="nav-link" href="../../antrian-poli.php">
           <i class="fas fa-door-open"></i>
           <span>Antrian Poli</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="../../antrian-manual.php">
+          <i class="fas fa-door-open"></i>
+          <span>Antrian Manual</span>
         </a>
       </li>
 
@@ -150,19 +158,8 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
                   </div>
                 </div>
                 <div class="card-body">
-                  <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Antrian</a>
-                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Antrian Manual</a>
-                    </div>
-                  </nav>
-
                   <!-- Isian Menu -->
-
-                  <div class="tab-content" id="nav-tabContent">
-                    <!-- Antrian Otomatis -->
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
+                  
                       <!-- Input No. Ruangan Poli -->
                       <div class="row">
                         <div class="col-8 mt-4">
@@ -273,71 +270,7 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <!-- Antrian Manual -->
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="jumbotron mt-4">
-                            <h3>Nomor Yang Dipanggil :</h3>
-                            <hr class="my-4">
-                            <h1 class="display-3 text-center" id="nomor-antrian2">
-                              Belum Ada
-                            </h1>
-                          </div>
-
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="inputNomor">Masukkan Nomor Antrian</label>
-                                <input type="text" class="form-control" id="inputNomor">
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- Batas Tombol -->
-                          <div class="row mb-4 text-center">
-                            <div class="col-6">
-                              <!-- Button Next -->
-                              <button class="btn btn-primary btn-icon-split btn-lg" id="manual">
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="text">Panggil Antrian</span>
-                              </button>
-                            </div>
-
-                            <div class="col-6">
-                              <!-- Button Panggil -->
-                              <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-volume-down"></i>
-                                </span>
-                                <span class="text">Panggil Ulang</span>
-                              </button>
-                            </div>
-
-                          </div>
-                        </div>
-
-                        <div class="col-6">
-                          <div class="card border-left-primary shadow py-2 mt-4">
-                            <div class="card-body">
-                              <div class="no-gutters align-items-center">
-                                Petunjuk Penggunaan :<br>
-                                <ol>
-                                  <li>Ketikan Manual Nomor Antrian Pada Kolom <b class="text-danger"><i>Masukkan Nomor Antrian</i></b>.</li>
-                                  <li>Jika Sudah Memasukkan Nomor, Tekan Tombol <b class="text-danger"><i>Panggil Antrian</i></b>.</li>
-                                  <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
-                                </ol>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -388,7 +321,8 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
 
   <script>
     $(document).ready(function() {
-      idPoli = <?= json_encode($poli); ?>;
+
+      var idPoli = <?= json_encode($poli); ?>;
 
       $("#next").click(function() {
         // inputPoli = document.getElementById('inputPoli').value;
@@ -408,7 +342,7 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
             }
           })
         }
-      })
+      });
 
       $("#repeat").click(function() {
         $.ajax({
@@ -416,14 +350,14 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
           url: "../trigger/panggil_ulang.php",
           data: 'id=' + idPoli,
           success: function(html) {
-            $("#nomor-antrian").html(html)
+            $("#nomor-antrian").html(html);
           }
         })
-      })
+      });
 
       $("#reset").click(function() {
-        // inputPoli = document.getElementById('inputPoli').value;
         inputPoli = $("input[name='inlineRadioOptions']:checked").val();
+
         if (inputPoli == "") {
           alert("Isi Dahulu Nomor Poli Yang Digunakan...");
         } else {
@@ -434,29 +368,12 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
               id: idPoli,
               inputPoli: inputPoli
             },
+            cache: false,
             success: function(html) {
               $("#nomor-antrian").html(html);
             }
           })
         }
-      });
-
-      $("#manual").click(function() {
-        inputNomor = document.getElementById('inputNomor').value;
-        $.ajax({
-          type: "POST",
-          url: "../trigger/tambah_manual.php",
-          data: {
-            id: idPoli,
-            inputNomor: inputNomor
-          },
-          success: function(html) {
-            $("#nomor-antrian2").html(html),
-              document.getElementById('inputNomor').value = ""
-          }
-
-        })
-
       });
 
     })

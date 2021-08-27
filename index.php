@@ -1,10 +1,10 @@
-<?php 
+<?php
 include "config.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
 
     <meta charset="utf-8">
@@ -63,6 +63,14 @@ include "config.php";
                 <a class="nav-link" href="antrian-poli.php">
                     <i class="fas fa-door-open"></i>
                     <span>Antrian Poli</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="antrian-manual.php">
+                    <i class="fas fa-door-open"></i>
+                    <span>Antrian Manual</span>
                 </a>
             </li>
 
@@ -128,10 +136,10 @@ include "config.php";
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kunjungan Hari Ini</div>
-                                            <?php 
-                                                $cekKunjungan = "SELECT count(no_reg) as no_urut FROM reg_periksa WHERE tgl_registrasi = '$date'";
-                                                $qKunjungan = mysqli_query($conn2, $cekKunjungan);
-                                                $showHasil = mysqli_fetch_assoc($qKunjungan);
+                                            <?php
+                                            $cekKunjungan = "SELECT count(no_reg) as no_urut FROM reg_periksa WHERE tgl_registrasi = '$date'";
+                                            $qKunjungan = mysqli_query($conn2, $cekKunjungan);
+                                            $showHasil = mysqli_fetch_assoc($qKunjungan);
                                             ?>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $showHasil['no_urut']; ?></div>
                                         </div>

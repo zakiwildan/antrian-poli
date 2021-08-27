@@ -1,7 +1,7 @@
 <?php
 
 //Masukkan Koneksi
-include "../../config.php";
+require_once ('../../config.php');
 
 //Deklarasi Parameter ID
 $id = $_POST['id'];
@@ -12,15 +12,19 @@ $query = mysqli_query($conn, "INSERT INTO a_antrian (no_urut, tgl_periksa, id_po
 echo "$tambahAntrian";
 
 $nomor = (string)$tambahAntrian;
-$panjang = strlen($nomor);
-$antrian = $nomor;
+$panjangM = strlen($nomor);
+$antrianM = $nomor;
 $adaantrian = 1;
 
 ?>
 <audio id="suarabel" src="../record/bell.wav"></audio>
 
-<audio id="suarabelnomorurut" src="../record/nomor-urut.wav"></audio>
+<!-- <audio id="suarabelnomorurut" src="../record/nomor-urut.wav"></audio> -->
+<audio id="suarabelnomorurut" src="../record/panggilan.wav"></audio>
+<audio id="suarabelnomorurut2" src="../record/urut.wav"></audio>
 <audio id="suarabelsuarabelloket" src="../record/loket.wav"></audio>
+<audio id="suarapanggilanpoli" src="../record/poli.wav"></audio>
+
 
 <audio id="belas" src="../record/belas.wav"></audio>
 <audio id="sebelas" src="../record/sebelas.wav"></audio>
@@ -52,12 +56,12 @@ $adaantrian = 1;
 <audio id="suarabelpolisptht" src="../record/poli/sptht.wav"></audio>
 <audio id="suarabelpolispuro" src="../record/poli/spuro.wav"></audio>
 
-<?php for ($i = 0; $i < $panjang; $i++) { ?>
-    <audio id="suarabel<?php echo $i; ?>" src="../record/<?php echo substr($antrian, $i, 1); ?>.wav"></audio>
+<?php for ($i = 0; $i < $panjangM; $i++) { ?>
+    <audio id="suarabel<?php echo $i; ?>" src="../record/<?php echo substr($antrianM, $i, 1); ?>.wav"></audio>
 <?php } ?>
 
 <script type="text/javascript">
-    function mulai() {
+    function mulai2() {
         //MAINKAN SUARA BEL PADA SAAT AWAL
         document.getElementById('suarabel').pause();
         document.getElementById('suarabel').currentTime = 0;
@@ -74,7 +78,7 @@ $adaantrian = 1;
             document.getElementById('suarabelnomorurut').currentTime = 0;
             document.getElementById('suarabelnomorurut').play();
         }, totalwaktu);
-        totalwaktu = totalwaktu + 2000;
+        totalwaktu = totalwaktu + 1600;
 
         //MAINKAN SUARA POLI
         setTimeout(function() {
@@ -82,7 +86,7 @@ $adaantrian = 1;
             document.getElementById('suarapanggilanpoli').currentTime = 0;
             document.getElementById('suarapanggilanpoli').play();
         }, totalwaktu);
-        totalwaktu = totalwaktu + 1800;
+        totalwaktu = totalwaktu + 1500;
 
         //MAINKAN NAMA POLI
         <?php
@@ -93,7 +97,187 @@ $adaantrian = 1;
                 document.getElementById('suarabelpoliumum').currentTime = 0;
                 document.getElementById('suarabelpoliumum').play();
             }, totalwaktu);
-            totalwaktu = totalwaktu + 1800;
+            totalwaktu = totalwaktu + 1000;
+        <?php
+        } elseif ($id == "U002") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolikia').pause();
+                document.getElementById('suarabelpolikia').currentTime = 0;
+                document.getElementById('suarabelpolikia').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U004") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpoligeriatri').pause();
+                document.getElementById('suarabelpoligeriatri').currentTime = 0;
+                document.getElementById('suarabelpoligeriatri').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U005") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpoligigi').pause();
+                document.getElementById('suarabelpoligigi').currentTime = 0;
+                document.getElementById('suarabelpoligigi').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U006") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolirehabmedik').pause();
+                document.getElementById('suarabelpolirehabmedik').currentTime = 0;
+                document.getElementById('suarabelpolirehabmedik').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U003") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolifisioterapi').pause();
+                document.getElementById('suarabelpolifisioterapi').currentTime = 0;
+                document.getElementById('suarabelpolifisioterapi').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U007") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispanak').pause();
+                document.getElementById('suarabelpolispanak').currentTime = 0;
+                document.getElementById('suarabelpolispanak').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U008") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispanastesi').pause();
+                document.getElementById('suarabelpolispanastesi').currentTime = 0;
+                document.getElementById('suarabelpolispanastesi').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U009") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispbu').pause();
+                document.getElementById('suarabelpolispbu').currentTime = 0;
+                document.getElementById('suarabelpolispbu').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U010") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispgigi').pause();
+                document.getElementById('suarabelpolispgigi').currentTime = 0;
+                document.getElementById('suarabelpolispgigi').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U011") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispgigibu').pause();
+                document.getElementById('suarabelpolispgigibu').currentTime = 0;
+                document.getElementById('suarabelpolispgigibu').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U012") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispjantung').pause();
+                document.getElementById('suarabelpolispjantung').currentTime = 0;
+                document.getElementById('suarabelpolispjantung').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U013") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispkandungan').pause();
+                document.getElementById('suarabelpolispkandungan').currentTime = 0;
+                document.getElementById('suarabelpolispkandungan').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U014") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispkk').pause();
+                document.getElementById('suarabelpolispkk').currentTime = 0;
+                document.getElementById('suarabelpolispkk').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U015") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispmata').pause();
+                document.getElementById('suarabelpolispmata').currentTime = 0;
+                document.getElementById('suarabelpolispmata').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U016") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolisportho').pause();
+                document.getElementById('suarabelpolisportho').currentTime = 0;
+                document.getElementById('suarabelpolisportho').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U017") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispparu').pause();
+                document.getElementById('suarabelpolispparu').currentTime = 0;
+                document.getElementById('suarabelpolispparu').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U018") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolisppd').pause();
+                document.getElementById('suarabelpolisppd').currentTime = 0;
+                document.getElementById('suarabelpolisppd').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U019") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispsyaraf').pause();
+                document.getElementById('suarabelpolispsyaraf').currentTime = 0;
+                document.getElementById('suarabelpolispsyaraf').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U020") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolisptht').pause();
+                document.getElementById('suarabelpolisptht').currentTime = 0;
+                document.getElementById('suarabelpolisptht').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
+        <?php
+        } elseif ($id == "U021") {
+        ?>
+            setTimeout(function() {
+                document.getElementById('suarabelpolispuro').pause();
+                document.getElementById('suarabelpolispuro').currentTime = 0;
+                document.getElementById('suarabelpolispuro').play();
+            }, totalwaktu);
+            totalwaktu = totalwaktu + 2400;
         <?php
         }
         ?>
@@ -108,18 +292,16 @@ $adaantrian = 1;
 
         <?php
         //JIKA KURANG DARI 10 MAKA MAIKAN SUARA ANGKA1
-        if ($antrian < 10) {
+        if ($antrianM < 10) {
         ?>
-
             setTimeout(function() {
                 document.getElementById('suarabel0').pause();
                 document.getElementById('suarabel0').currentTime = 0;
                 document.getElementById('suarabel0').play();
             }, totalwaktu);
-
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian == 10) {
+        } elseif ($antrianM == 10) {
             //JIKA 10 MAKA MAIKAN SUARA SEPULUH
         ?>
             setTimeout(function() {
@@ -129,7 +311,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian == 11) {
+        } elseif ($antrianM == 11) {
             //JIKA 11 MAKA MAIKAN SUARA SEBELAS
         ?>
             setTimeout(function() {
@@ -139,7 +321,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 20) {
+        } elseif ($antrianM < 20) {
             //JIKA 12-20 MAKA MAIKAN SUARA ANGKA2+"BELAS"
         ?>
             setTimeout(function() {
@@ -155,7 +337,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 100) {
+        } elseif ($antrianM < 100) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -177,7 +359,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian == 100) {
+        } elseif ($antrianM == 100) {
             //JIKA 100 MAKA MAIKAN SUARA SEratus
         ?>
             setTimeout(function() {
@@ -187,7 +369,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 110) {
+        } elseif ($antrianM < 110) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -203,7 +385,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian == 110) {
+        } elseif ($antrianM == 110) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -220,7 +402,7 @@ $adaantrian = 1;
             totalwaktu = totalwaktu + 1000;
         <?php
             //JIKA KURANG DARI 10 MAKA MAIKAN SUARA ANGKA1
-        } elseif ($antrian == 111) {
+        } elseif ($antrianM == 111) {
         ?>
             setTimeout(function() {
                 document.getElementById('seratus').pause();
@@ -235,7 +417,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 120) {
+        } elseif ($antrianM < 120) {
             //JIKA 12-20 MAKA MAIKAN SUARA ANGKA2+"BELAS"
         ?>
             setTimeout(function() {
@@ -257,7 +439,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 200) {
+        } elseif ($antrianM < 200) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -285,7 +467,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian == 200) {
+        } elseif ($antrianM == 200) {
             //JIKA 100 MAKA MAIKAN SUARA SEratus
         ?>
             setTimeout(function() {
@@ -301,7 +483,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 210) {
+        } elseif ($antrianM < 210) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -323,7 +505,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian == 210) {
+        } elseif ($antrianM == 210) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -346,7 +528,7 @@ $adaantrian = 1;
             totalwaktu = totalwaktu + 1000;
         <?php
             //JIKA KURANG DARI 10 MAKA MAIKAN SUARA ANGKA1
-        } elseif ($antrian == 211) {
+        } elseif ($antrianM == 211) {
         ?>
             setTimeout(function() {
                 document.getElementById('suarabel0').pause();
@@ -367,7 +549,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 220) {
+        } elseif ($antrianM < 220) {
             //JIKA 12-20 MAKA MAIKAN SUARA ANGKA2+"BELAS"
         ?>
             setTimeout(function() {
@@ -395,7 +577,7 @@ $adaantrian = 1;
             }, totalwaktu);
             totalwaktu = totalwaktu + 1000;
         <?php
-        } elseif ($antrian < 1000) {
+        } elseif ($antrianM < 1000) {
             //JIKA PULUHAN MAKA MAINKAN SUARA ANGKA1+PULUH+AKNGKA2
         ?>
             setTimeout(function() {
@@ -659,7 +841,7 @@ $adaantrian = 1;
 if ($adaantrian > 0) {
 ?>
     <script type="text/javascript">
-        mulai()
+        mulai2()
     </script>
 <?php
 }

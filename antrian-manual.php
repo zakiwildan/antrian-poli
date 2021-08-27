@@ -61,7 +61,7 @@ require_once('config.php');
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="antrian-poli.php">
           <i class="fas fa-door-open"></i>
           <span>Antrian Poli</span>
@@ -69,7 +69,7 @@ require_once('config.php');
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="antrian-manual.php">
           <i class="fas fa-door-open"></i>
           <span>Antrian Manual</span>
@@ -125,7 +125,7 @@ require_once('config.php');
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Pilih Poli Antrian</h1>
+            <h1 class="h3 mb-0 text-gray-800">Pilih Poli Antrian Manual</h1>
           </div>
 
           <!-- Content Row -->
@@ -162,7 +162,7 @@ require_once('config.php');
                             <td><?= $rowData['id_poli'] ?></td>
                             <td><?= $rowData['nm_poli'] ?></td>
                             <td align="center">
-                              <a class="btn btn-primary btn-circle btn-sm" target="_blank" href="pages/antrian/poli_tujuan.php?poli=<?= $rowData['id_poli'] ?>">
+                              <a class="btn btn-primary btn-circle btn-sm" target="_blank" href="pages/antrian/poli_manual.php?poli=<?= $rowData['id_poli'] ?>">
                                 <i class="fas fa-check"></i>
                               </a>
                             </td>

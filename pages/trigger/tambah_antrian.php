@@ -1,7 +1,7 @@
 <?php
 
 //Masukkan Koneksi
-include "../../config.php";
+require_once ('../../config.php');
 
 //Deklarasi Parameter ID
 $id = $_POST['id'];
@@ -41,7 +41,6 @@ if ($hasilAntrian >= 1) {
 <?php
     //Tampilan Pesan Keluar
     echo "Kosong";
-
 } else {
 
     $jumlahAntrian = 0;
@@ -65,7 +64,7 @@ if ($hasilAntrian >= 1) {
     <audio id="suarabelnomorurut2" src="../record/urut.wav"></audio>
     <audio id="suarabelsuarabelloket" src="../record/loket.wav"></audio>
     <audio id="suarapanggilanpoli" src="../record/poli.wav"></audio>
-    
+
 
     <audio id="belas" src="../record/belas.wav"></audio>
     <audio id="sebelas" src="../record/sebelas.wav"></audio>
@@ -119,7 +118,7 @@ if ($hasilAntrian >= 1) {
                 document.getElementById('suarabelnomorurut').currentTime = 0;
                 document.getElementById('suarabelnomorurut').play();
             }, totalwaktu);
-            totalwaktu = totalwaktu + 2000;
+            totalwaktu = totalwaktu + 1600;
 
             //MAINKAN SUARA POLI
             setTimeout(function() {
@@ -127,7 +126,7 @@ if ($hasilAntrian >= 1) {
                 document.getElementById('suarapanggilanpoli').currentTime = 0;
                 document.getElementById('suarapanggilanpoli').play();
             }, totalwaktu);
-            totalwaktu = totalwaktu + 1800;
+            totalwaktu = totalwaktu + 1500;
 
             //MAINKAN NAMA POLI
             <?php
@@ -138,7 +137,187 @@ if ($hasilAntrian >= 1) {
                     document.getElementById('suarabelpoliumum').currentTime = 0;
                     document.getElementById('suarabelpoliumum').play();
                 }, totalwaktu);
-            totalwaktu = totalwaktu + 1800;
+            totalwaktu = totalwaktu + 1000;
+            <?php
+            } elseif ($id == "U002") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolikia').pause();
+                    document.getElementById('suarabelpolikia').currentTime = 0;
+                    document.getElementById('suarabelpolikia').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U004") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpoligeriatri').pause();
+                    document.getElementById('suarabelpoligeriatri').currentTime = 0;
+                    document.getElementById('suarabelpoligeriatri').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U005") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpoligigi').pause();
+                    document.getElementById('suarabelpoligigi').currentTime = 0;
+                    document.getElementById('suarabelpoligigi').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U006") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolirehabmedik').pause();
+                    document.getElementById('suarabelpolirehabmedik').currentTime = 0;
+                    document.getElementById('suarabelpolirehabmedik').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U003") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolifisioterapi').pause();
+                    document.getElementById('suarabelpolifisioterapi').currentTime = 0;
+                    document.getElementById('suarabelpolifisioterapi').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U007") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispanak').pause();
+                    document.getElementById('suarabelpolispanak').currentTime = 0;
+                    document.getElementById('suarabelpolispanak').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U008") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispanastesi').pause();
+                    document.getElementById('suarabelpolispanastesi').currentTime = 0;
+                    document.getElementById('suarabelpolispanastesi').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U009") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispbu').pause();
+                    document.getElementById('suarabelpolispbu').currentTime = 0;
+                    document.getElementById('suarabelpolispbu').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U010") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispgigi').pause();
+                    document.getElementById('suarabelpolispgigi').currentTime = 0;
+                    document.getElementById('suarabelpolispgigi').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U011") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispgigibu').pause();
+                    document.getElementById('suarabelpolispgigibu').currentTime = 0;
+                    document.getElementById('suarabelpolispgigibu').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U012") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispjantung').pause();
+                    document.getElementById('suarabelpolispjantung').currentTime = 0;
+                    document.getElementById('suarabelpolispjantung').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U013") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispkandungan').pause();
+                    document.getElementById('suarabelpolispkandungan').currentTime = 0;
+                    document.getElementById('suarabelpolispkandungan').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U014") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispkk').pause();
+                    document.getElementById('suarabelpolispkk').currentTime = 0;
+                    document.getElementById('suarabelpolispkk').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U015") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispmata').pause();
+                    document.getElementById('suarabelpolispmata').currentTime = 0;
+                    document.getElementById('suarabelpolispmata').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U016") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolisportho').pause();
+                    document.getElementById('suarabelpolisportho').currentTime = 0;
+                    document.getElementById('suarabelpolisportho').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U017") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispparu').pause();
+                    document.getElementById('suarabelpolispparu').currentTime = 0;
+                    document.getElementById('suarabelpolispparu').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U018") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolisppd').pause();
+                    document.getElementById('suarabelpolisppd').currentTime = 0;
+                    document.getElementById('suarabelpolisppd').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U019") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispsyaraf').pause();
+                    document.getElementById('suarabelpolispsyaraf').currentTime = 0;
+                    document.getElementById('suarabelpolispsyaraf').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U020") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolisptht').pause();
+                    document.getElementById('suarabelpolisptht').currentTime = 0;
+                    document.getElementById('suarabelpolisptht').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
+            <?php
+            } elseif ($id == "U021") {
+            ?>
+                setTimeout(function() {
+                    document.getElementById('suarabelpolispuro').pause();
+                    document.getElementById('suarabelpolispuro').currentTime = 0;
+                    document.getElementById('suarabelpolispuro').play();
+                }, totalwaktu);
+                totalwaktu = totalwaktu + 2400;
             <?php
             }
             ?>
