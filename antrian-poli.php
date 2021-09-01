@@ -71,7 +71,7 @@ require_once('config.php');
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="antrian-manual.php">
-          <i class="fas fa-door-open"></i>
+          <i class="fas fa-drafting-compass"></i>
           <span>Antrian Manual</span>
         </a>
       </li>

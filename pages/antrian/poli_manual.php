@@ -78,7 +78,7 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
         <a class="nav-link" href="../../antrian-manual.php">
-          <i class="fas fa-door-open"></i>
+          <i class="fas fa-drafting-compass"></i>
           <span>Antrian Manual</span>
         </a>
       </li>
@@ -172,7 +172,8 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
 
                           <!-- Batas Tombol -->
                           <div class="row mb-4 text-center">
-                            <div class="col-6">
+
+                            <div class="col">
                               <!-- Button Next -->
                               <button class="btn btn-primary btn-icon-split btn-lg" id="manual">
                                 <span class="icon text-white-50">
@@ -193,7 +194,6 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
                                 <ol>
                                   <li>Ketikan Manual Nomor Antrian Pada Kolom <b class="text-danger"><i>Masukkan Nomor Antrian</i></b>.</li>
                                   <li>Jika Sudah Memasukkan Nomor, Tekan Tombol <b class="text-danger"><i>Panggil Antrian</i></b>.</li>
-                                  <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
                                 </ol>
                               </div>
                             </div>
