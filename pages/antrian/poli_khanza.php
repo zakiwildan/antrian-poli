@@ -80,9 +80,17 @@ $dokter = $_GET['dokter'];
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="dashboard.php" target="_blank">
+        <a class="nav-link" href="../../dashboard.php" target="_blank">
           <i class="fas fa-desktop"></i>
           <span>Dashboard</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="../../dashboard2.php" target="_blank">
+          <i class="fas fa-desktop"></i>
+          <span>Dashboard Lt. 2</span>
         </a>
       </li>
 

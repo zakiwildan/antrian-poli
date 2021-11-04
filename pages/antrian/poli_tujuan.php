@@ -99,6 +99,14 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
         </a>
       </li>
 
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="../../dashboard2.php" target="_blank">
+          <i class="fas fa-desktop"></i>
+          <span>Dashboard Lt. 2</span>
+        </a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -160,56 +168,114 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
                 <div class="card-body">
                   <!-- Isian Menu -->
 
-                      <!-- Input No. Ruangan Poli -->
-                      <div class="row">
-                        <div class="col-8 mt-4">
-                          <div class="form-group">
-                            <h5>Pilih Ruangan Poli Yang Digunakan : </h4>
-                          </div>
-                          <hr>
-                          <div class="form-group">
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" <?php echo ($outputHasil['no_poli'] == 1 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio1">Poli 1</label>
-                            </div>
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" <?php echo ($outputHasil['no_poli'] == 2 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio2">Poli 2</label>
-                            </div>
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" <?php echo ($outputHasil['no_poli'] == 3 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio3">Poli 3</label>
-                            </div>
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" <?php echo ($outputHasil['no_poli'] == 4 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio4">Poli 4</label>
-                            </div>
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" <?php echo ($outputHasil['no_poli'] == 5 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio5">Poli 5</label>
-                            </div>
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="6" <?php echo ($outputHasil['no_poli'] == 6 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio6">Poli 6</label>
-                            </div>
-                            <div class="form-check form-check-inline mr-4">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="7" <?php echo ($outputHasil['no_poli'] == 7 )?'checked':'' ?>>
-                              <label class="form-check-label" for="inlineRadio7">Poli 7</label>
-                            </div>
-                          </div>
-                          <hr>
-                        </div>
+                  <!-- Input No. Ruangan Poli -->
+                  <div class="row">
+                    <div class="col-12 mt-4">
+                      <div class="form-group">
+                        <h5>Pilih Ruangan Poli Yang Digunakan : </h4>
                       </div>
+                      <hr>
+                      <?php if (
+                        $poli == "U001" || $poli == "U002" || $poli == "U004" || $poli == "U006" || $poli == "U008" || $poli == "U009" || $poli == "U012"
+                        || $poli == "U013" || $poli == "U016" || $poli == "U017" || $poli == "U018" || $poli == "U019" || $poli == "U020" || $poli == "U021"
+                      ) { ?>
+                        <div class="form-group">
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" <?php echo ($outputHasil['no_poli'] == 1) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio1">Poli 1</label>
+                          </div>
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" <?php echo ($outputHasil['no_poli'] == 2) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio2">Poli 2</label>
+                          </div>
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" <?php echo ($outputHasil['no_poli'] == 3) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio3">Poli 3</label>
+                          </div>
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" <?php echo ($outputHasil['no_poli'] == 4) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio4">Poli 4</label>
+                          </div>
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" <?php echo ($outputHasil['no_poli'] == 5) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio5">Poli 5</label>
+                          </div>
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="6" <?php echo ($outputHasil['no_poli'] == 6) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio6">Poli 6</label>
+                          </div>
+                          <div class="form-check form-check-inline mr-4">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="7" <?php echo ($outputHasil['no_poli'] == 7) ? 'checked' : '' ?>>
+                            <label class="form-check-label" for="inlineRadio7">Poli 7</label>
+                          </div>
+                        </div>
+                      <?php } ?>
 
-                      <!-- Dashboard Antrian -->
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="jumbotron mt-2">
-                            <h3>Nomor Yang Dipanggil :</h3>
-                            <hr class="my-4">
-                            <h1 class="display-3 text-center" id="nomor-antrian">
-                              <?php
-                              $qAntrian = mysqli_query($conn, "SELECT max(a_antrian.no_urut) as no_urut 
+                      <?php if (
+                        $poli == "U003" || $poli == "U005" || $poli == "U007" || $poli == "U010"
+                        || $poli == "U011" || $poli == "U014" || $poli == "U015"
+                      ) { ?>
+                        <!-- Untuk Dashboard 2 -->
+                        <div class="form-group">
+
+                          <?php if ($poli == "U007") { ?>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8" value="8" <?php echo ($outputHasil['no_poli'] == 8) ? 'checked' : '' ?>>
+                              <label class="form-check-label" for="inlineRadio8">Poli Anak Lt. 2</label>
+                            </div>
+                          <?php } ?>
+
+                          <?php if ($poli == "U003") { ?>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio9" value="9" <?php echo ($outputHasil['no_poli'] == 9) ? 'checked' : '' ?>>
+                              <label class="form-check-label" for="inlineRadio9">Poli Fisioterapi Lt. 2</label>
+                            </div>
+                          <?php } ?>
+
+                          <?php if ($poli == "U0014") { ?>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio10" value="10" <?php echo ($outputHasil['no_poli'] == 10) ? 'checked' : '' ?>>
+                              <label class="form-check-label" for="inlineRadio10">Poli Kulit & Kelamit Lt. 2</label>
+                            </div>
+                          <?php } ?>
+
+                          <?php if ($poli == "U015") { ?>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio11" value="11" <?php echo ($outputHasil['no_poli'] == 11) ? 'checked' : '' ?>>
+                              <label class="form-check-label" for="inlineRadio11">Poli Mata Lt. 2</label>
+                            </div>
+                          <?php } ?>
+
+                          <?php if ($poli == "U005") { ?>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio12" value="12" <?php echo ($outputHasil['no_poli'] == 12) ? 'checked' : '' ?>>
+                              <label class="form-check-label" for="inlineRadio12">Poli Gigi Lt. 2</label>
+                            </div>
+                          <?php } ?>
+
+                          <?php if ($poli == "U010") { ?>
+                            <div class="form-check form-check-inline mr-4">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio13" value="13" <?php echo ($outputHasil['no_poli'] == 13) ? 'checked' : '' ?>>
+                              <label class="form-check-label" for="inlineRadio13">Poli Spesialis Gigi Lt. 2</label>
+                            </div>
+                        </div>
+                      <?php } ?>
+
+                    <?php } ?>
+
+                    <hr>
+                    </div>
+                  </div>
+
+                  <!-- Dashboard Antrian -->
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="jumbotron mt-2">
+                        <h3>Nomor Yang Dipanggil :</h3>
+                        <hr class="my-4">
+                        <h1 class="display-3 text-center" id="nomor-antrian">
+                          <?php
+                          $qAntrian = mysqli_query($conn, "SELECT max(a_antrian.no_urut) as no_urut 
                                                                 FROM a_antrian 
                                                                 JOIN a_poliklinik 
                                                                   ON a_antrian.id_poli = a_poliklinik.id_poli 
@@ -217,59 +283,59 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
                                                                   AND a_antrian.keterangan = 'otomatis' 
                                                                   AND a_antrian.tgl_periksa = '$date' 
                                                                   AND a_antrian.status = '-'");
-                              while ($cekNomor = mysqli_fetch_assoc($qAntrian)) {
-                                if ($cekNomor['no_urut'] <= 0) {
-                                  echo "Kosong";
-                                } else {
-                                  echo $cekNomor['no_urut'];
-                                }
-                              }
-                              ?>
-                            </h1>
-                          </div>
+                          while ($cekNomor = mysqli_fetch_assoc($qAntrian)) {
+                            if ($cekNomor['no_urut'] <= 0) {
+                              echo "Kosong";
+                            } else {
+                              echo $cekNomor['no_urut'];
+                            }
+                          }
+                          ?>
+                        </h1>
+                      </div>
 
-                          <!-- Batas Tombol -->
-                          <div class="row mb-4 text-center">
-                            <div class="col-6">
-                              <!-- Button Next -->
-                              <button class="btn btn-primary btn-icon-split btn-lg" id="next">
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="text">Next Antrian</span>
-                              </button>
-                            </div>
-
-                            <div class="col-6">
-                              <!-- Button Panggil -->
-                              <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-volume-down"></i>
-                                </span>
-                                <span class="text">Panggil Ulang</span>
-                              </button>
-                            </div>
-
-                          </div>
+                      <!-- Batas Tombol -->
+                      <div class="row mb-4 text-center">
+                        <div class="col-6">
+                          <!-- Button Next -->
+                          <button class="btn btn-primary btn-icon-split btn-lg" id="next">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Next Antrian</span>
+                          </button>
                         </div>
 
                         <div class="col-6">
-                          <div class="card border-left-primary shadow py-2 mt-4">
-                            <div class="card-body">
-                              <div class="no-gutters align-items-center">
-                                Petunjuk Penggunaan :<br>
-                                <ol>
-                                  <li>Pilih Poli Yang Digunakan.</li>
-                                  <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
-                                  <li>Tekan Tombol <b class="text-danger"><i>"Next Antrian"</i></b> Untuk Memanggil Pasien.</li>
-                                  <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
-                                </ol>
-                                Note : Jika Ingin Memulai Antrian Dari Awal Tekan Tombol <b class="text-danger"><i>"Reset"</i></b>.
-                              </div>
-                            </div>
+                          <!-- Button Panggil -->
+                          <button class="btn btn-success btn-icon-split btn-lg" id="repeat">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-volume-down"></i>
+                            </span>
+                            <span class="text">Panggil Ulang</span>
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="card border-left-primary shadow py-2 mt-4">
+                        <div class="card-body">
+                          <div class="no-gutters align-items-center">
+                            Petunjuk Penggunaan :<br>
+                            <ol>
+                              <li>Pilih Poli Yang Digunakan.</li>
+                              <li>Pastikan Nomor yang dipanggil <b class="text-danger"><i>"Kosong"</i></b>.</li>
+                              <li>Tekan Tombol <b class="text-danger"><i>"Next Antrian"</i></b> Untuk Memanggil Pasien.</li>
+                              <li>Jika Ingin Mengulangi Panggilan, Tekan Tombol <b class="text-danger"><i>"Panggil Ulang"</i></b>.</li>
+                            </ol>
+                            Note : Jika Ingin Memulai Antrian Dari Awal Tekan Tombol <b class="text-danger"><i>"Reset"</i></b>.
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
 
                 </div>
               </div>
@@ -327,8 +393,8 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
       $("#next").click(function() {
         // inputPoli = document.getElementById('inputPoli').value;
         inputPoli = $("input[name='inlineRadioOptions']:checked").val();
-        if (inputPoli == "") {
-          alert("Isi Dahulu Nomor Poli Yang Digunakan...");
+        if (inputPoli == null) {
+          alert("Pilih Dahulu Poli Yang Digunakan...");
         } else {
           $.ajax({
             type: "POST",
@@ -357,9 +423,8 @@ $hitungCek = mysqli_num_rows($cekPemakaian);
 
       $("#reset").click(function() {
         inputPoli = $("input[name='inlineRadioOptions']:checked").val();
-
-        if (inputPoli == "") {
-          alert("Isi Dahulu Nomor Poli Yang Digunakan...");
+        if (inputPoli == null) {
+          alert("Pilij Dahulu Poli Yang Digunakan...");
         } else {
           $.ajax({
             type: "POST",

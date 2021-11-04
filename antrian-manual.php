@@ -92,6 +92,14 @@ require_once('config.php');
         </a>
       </li>
 
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+                <a class="nav-link" href="dashboard2.php" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                    <span>Dashboard Lt. 2</span>
+                </a>
+            </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

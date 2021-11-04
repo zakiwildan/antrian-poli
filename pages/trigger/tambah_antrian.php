@@ -8,16 +8,28 @@ $id = $_POST['id'];
 $inputPoli = $_POST['inputPoli'];
 
 //Cek Ruang Poli Apakah Dipakai Atau Tidak
-$cekRuang = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli = '$inputPoli' AND id_poli != '$id'");
+$cekRuang = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND no_poli = '$inputPoli' AND id_poli != '$id'");
 
 //Cek Poli Sudah Dipakai Di Ruang lain atau Tidak
-$cekPoli = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND keterangan = 'otomatis' AND no_poli != '$inputPoli' AND id_poli = '$id'");
+$cekPoli = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND no_poli != '$inputPoli' AND id_poli = '$id'");
+
+//Cek Ruang Sudah Dipakai di Antrian Manual
+$cekRuangManual = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND id_poli = '$id' AND keterangan = 'manual'");
+
+//Cek Poli Sudah Dipakai di Antrian Manual
+$cekPoliManual = mysqli_query($conn, "SELECT * FROM a_antrian WHERE tgl_periksa = '$date' AND status = '-' AND no_poli = '$inputPoli' AND keterangan = 'manual'");
 
 //Hasil Cek Ruang Poli Dipakai atau Tidak
 $hasilAntrian = mysqli_num_rows($cekRuang);
 
 //Hasil Cek Poli Sudah Ada atau Belim
 $hasilPoli = mysqli_num_rows($cekPoli);
+
+//Hasil Cek Ruang Sudah Dipakai Manual
+$hasilRuangManual = mysqli_num_rows($cekRuangManual);
+
+//Hasil Cek Poli Suah Dipakai Manual
+$hasilPoliManual = mysqli_num_rows($cekPoliManual);
 
 //Ambil Nama Poli
 $cekNMPoli = mysqli_fetch_assoc($cekRuang);
@@ -41,6 +53,29 @@ if ($hasilAntrian >= 1) {
 <?php
     //Tampilan Pesan Keluar
     echo "Kosong";
+
+} else if ($hasilRuangManual >= 1) {
+
+    ?>
+        <!-- Alert -->
+        <script type="text/javascript">
+            alert('Ruangan Sudah Dipakai Di Menu Antrian Manual, Silahkan Cek Dashboard...');
+        </script>
+    <?php
+        //Tampilan Pesan Keluar
+        echo "Kosong";
+
+} else if ($hasilPoliManual >= 1) {
+
+    ?>
+        <!-- Alert -->
+        <script type="text/javascript">
+            alert('Poliklinik Sudah Dipakai Di Menu Antrian Manual, Silahkan Cek Dashboard...');
+        </script>
+    <?php
+        //Tampilan Pesan Keluar
+        echo "Kosong";
+
 } else {
 
     $jumlahAntrian = 0;
